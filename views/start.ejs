@@ -1,0 +1,39 @@
+<%- include('partials/header') -%>
+<div class="hero min-h-screen">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left mx-1.5">
+      <h1 class="text-5xl font-bold">Welcome!</h1>
+      <h2 class="text-5xl font-bold"><%= user.userName.toUpperCase() %></h2>
+    </div>
+
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-secondary">
+      <div class="card-body">
+        <div class="form-control mt-6">
+          <button class="btn bg-info hover:bg-primary">
+            <div>
+              <a class="" href="/exercises">Add Exercises</a>
+            </div>
+          </button>
+        </div>
+
+        <div class="form-control mt-6">
+          <button class="btn bg-info hover:bg-primary">
+            <div>
+              <a class="" href="/clients">View Clients</a>
+            </div>
+          </button>
+        </div>
+
+        <div class="form-control mt-6">
+          <button class="btn bg-info hover:bg-primary">
+            <div>
+              <a class="" href="/appointments">View Appointments</a>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

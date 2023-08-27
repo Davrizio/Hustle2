@@ -1,0 +1,110 @@
+<%- include('partials/header') -%>
+<div>
+  <form action="/appointment/createPost" enctype="multipart/form-data" method="POST">
+    <div class="hero py-3">
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-secondary">
+          <div class="card-body">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Add Date</span>
+              </label>
+              <input type="datetime-local" placeholder="MM/DD/YYY" class="input input-bordered" id="date" name="date"/>
+              <label class="label">
+                <span class="label-text">Select Client</span>
+              </label>
+              <select class="select select-success max-w-xs" name="client">
+                <option class="disabled selected w-auto">Client</option>
+                <% let options = []; %>
+                <% for(i=0; i<clientList.length; i++) {%>
+                  <option value="<%= clientList[i].id %>"><%= clientList[i].name.toUpperCase() %></option>
+                <%}%>
+              </select>
+            <div class="form-control mt-6">
+              <button type="submit" class="btn btn-info" value="Upload">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="hero py-3 mb-20">
+    <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-secondary">
+      <div class="card-body">
+        <div class="overflow-x-auto w-full">
+          <table class="table w-full">
+             <!-- head -->
+            <thead>
+               <tr>
+                <th>Date</th>
+                <th>Client</th>
+                <th>Edit Date</th>
+                <th>Delete</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(i=0; i<posts.length; i++) {%>
+                <tr>
+                   <td>
+                    <div>
+                      <% const apptDate = new Date(posts[i].date).toString() %>
+                      <h2><%= apptDate.substring(0,15) %> @ <%= apptDate.substring(16,21) %></h2>
+                    </div>
+                   </td>
+                  <td>
+                    <% const clientls = clientList; %>
+                    <% const clientlsResult = clientls.find(({id}) => id == posts[i].client); %>
+                    <% if(clientlsResult == undefined){ %>
+                    <span></span>
+                    <%}else{ %>
+                      <%= clientlsResult.name.toUpperCase() %>
+                    <%}%>
+                  </td>
+                  <th>
+                    <div>
+                      <form action="/appointment/editPost/<%= posts[i].id %>?_method=PUT" method="POST">
+                         <div class="form-control">
+                           <div class="input-group">
+                            <input type="datetime-local" class="input input-bordered" id="editDate" name="editDate"/>
+                            <input type="hidden" id="editClient"  name="editClient" value="<%= posts[i].client %>"></input>
+                             <button type="submit" class="btn btn-square" value="Upload">Save</button>
+                           </div> 
+                         </div> 
+                       </form>
+                     </div>
+                  </th>
+                   <th>
+                    <div class="avatar">
+                       <form action="/appointment/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn fa fa-trash" type="submit"></button>
+                       </form>
+                     </div>
+                   </th>
+                   <th>
+                    <button class="btn">
+                       <div>
+                        <a href="/appointment/<%= posts[i]._id%>" >Workout</a>
+                       </div>
+                     </button>
+                   </th>
+                 </tr>
+               <%}%>
+            </tbody>
+             <!-- foot -->
+            <tfoot>
+               <tr>
+                <th>Date</th>
+                <th>Client</th>
+                <th>Edit Date</th>
+                <th>Delete</th>
+                <th></th>
+               </tr>
+            </tfoot> 
+           </table>
+         </div>
+       </div>
+     </div>
+   </div>  
+</div>
+<%- include('partials/footer') -%>

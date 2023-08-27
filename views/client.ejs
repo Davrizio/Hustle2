@@ -1,0 +1,151 @@
+<%- include('partials/header') -%>
+  <input type="checkbox" id="info-edit-modal" class="modal-toggle" />
+
+  <div class="modal">
+    <div class="modal-box relative bg-secondary">
+      <label for="info-edit-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <form action="/client/editPost/<%= post.id %>?_method=PUT" method="POST">
+          <div>
+              <div class="bg-secondary">
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Edit Name</span>
+                    </label>
+                    <input type="text" value="<%= post.name %>" class="input input-bordered" id="editName" name="editName"/>
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Edit Address</span>
+                    </label>
+                    <input type="text" value="<%= post.address %>" class="input input-bordered" id="editAddress" name="editAddress"/>
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Edit Phone Number</span>
+                    </label>
+                    <input type="text" value="<%= post.phone %>" class="input input-bordered" id="editPhone" name="editPhone"/>
+                  </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Edit Email</span>
+                    </label>
+                    <input type="email" value="<%= post.email %>" class="input input-bordered" id="editEmail" name="editEmail"/>
+                  </div>
+                  <div class="form-control mt-6">
+                    <button type="submit" class="btn" value="Upload">Save</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+
+  <input type="checkbox" id="image-edit-modal" class="modal-toggle" />
+
+  <div class="modal">
+    <div class="modal-box h-48 w-80 bg-secondary">
+      <label for="image-edit-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+      <div class="bg-secondary flex place-content-center mt-2">
+        <form action="/client/editPhoto/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+              <div class="bg-secondary">
+                <div class="form-control">
+                  <label for="imgUpload" class="block mb-2 text-sm font-medium"> Change Photo</label>
+                  <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium id="imageUpload" name="file">
+                </div>
+                <div class="form-control mt-2 h-28 w-160">
+                  <button type="submit" class="btn" value="Upload">Save</button>
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<body>
+  <div class="hero py-3">
+    <div class="card w-96 shadow-xl bg-secondary">
+      <div class="relative">
+        <figure class="px-10 pt-10">
+          <img src="<%= post.image%>" alt="Client Image" class="rounded-xl" />
+        </figure>
+        <div class="card-actions absolute bottom-0 left-0 ml-10">
+          <label for="image-edit-modal" class="btn btn-ghost btn-xs h-auto w-auto opacity-75">Edit</label>
+        </div>
+      </div>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title"><%= post.name %></h2>
+        <p><%= post.address %></p>
+        <a href="tel:<%= post.phone %>"><%= post.phone %></a>
+        <a href="mailto:<%= post.email %>"><%= post.email %></a>
+        <div class="flex space-x-4">
+          <%if(post.user == user.id){ %>
+          <form action="/client/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
+            <button class="btn btn-secondary fa fa-trash" type="submit"></button>
+          </form>
+          <%}%>
+          <div class="card-actions">
+            <label for="info-edit-modal" class="btn btn-secondary">Edit</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero min-h-fit py-3 mb-20">
+    <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-secondary">
+      <div class="card-body">
+        <div class="overflow-x-auto w-full">
+          <table class="table w-full">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Delete</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i<cappt.length; i++) {%>
+                <%if(post.id == cappt[i].client){ %>
+                <tr>
+                  <td>
+                    <div>
+                      <div>
+                        <% const apptDate = new Date(cappt[i].date).toString() %>
+                        <h2><%= apptDate.substring(0,15) %> @ <%= apptDate.substring(16,21) %></h2>
+                      </div>
+                    </div>
+                  </td>
+                  <th>
+                    <div class="avatar">
+                      <form action="/appointment/deletePostFromClient/<%= cappt[i]._id %>?_method=DELETE" method="POST">
+                        <button class="btn fa fa-trash" type="submit"></button>
+                      </form>
+                    </div>
+                  </th>
+                  <th>
+                    <button class="btn btn-info">
+                      <div><a href="/appointment/<%= cappt[i]._id%>" >Workout</a></div>
+                    </button>
+                  </th>
+                </tr>
+                <%}%>
+              <%}%>
+            </tbody>
+            <!-- foot -->
+            <tfoot>
+              <tr>
+                <th>Date</th>
+                <th>Delete</th>
+                <th></th>
+              </tr>
+            </tfoot> 
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body> 
+<%- include('partials/footer') -%>
+  
