@@ -1,39 +1,28 @@
 <html lang="en" data-theme="fantasy">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hustle!</title>
-    <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/imgs/favicon-32x32.png"
-    />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
 
-  <body>
-    <main class="flex flex-col w-full border-opacity-50">
-      <div class="grid h-920 place-items-center">
-        <div class="navbar-center">
-          <a href="/login"><img class="object-contain py-3" src="/imgs/logo.jpg"></a>
-        </div>
-        <section class="col-6 mt-5">
-          <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-          <div class="alert alert-danger"><%= el.msg %></div>
-          <% }) %> <%}%> <% if (locals.messages.info) { %> <%
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hustle!</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/imgs/favicon-32x32.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/output.css" type="text/css" />
+</head>
+
+<body>
+  <main class="flex flex-col w-full border-opacity-50">
+    <div class="grid h-920 place-items-center">
+      <div class="navbar-center">
+        <a href="/login"><img class="object-contain py-3" src="/imgs/logo.jpg"></a>
+      </div>
+      <section class="col-6 mt-5">
+        <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %> <%}%> <% if (locals.messages.info) { %> <%
           messages.info.forEach( el => { %>
-          <div class="alert alert-info"><%= el.msg %></div>
-          <% }) %> <%}%>
+        <div class="alert alert-info"><%= el.msg %></div>
+        <% }) %> <%}%>
           <form action="/login" method="POST">
             <div class="hero min-h-screen">
               <div class="hero-content flex-col lg:flex-row-reverse">
@@ -71,5 +60,4 @@
         </section>
       </div>
     </main>
-  </body>
-</html>
+    <%- include('partials/footer') -%>
