@@ -19,16 +19,14 @@
         <h1 class="mb-6 text-5xl font-bold text-cyan-50 py-2">Hello there!</h1>
 
         <div class="btn-group">
-          <button class="btn" onclick="my_modal_5.showModal()">Login</button>
-          <button class="btn btn-primary">
-            <div><a href="/signup">Signup</a></div>
-          </button>
+          <button class="btn" onclick="loginModal.showModal()">Login</button>
+          <button class="btn" onclick="signupModal.showModal()">Signup</button>
         </div>
       </div>
     </div>
   </div>
 
-  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <dialog id="loginModal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
@@ -71,6 +69,14 @@
           </div>
         </div>
       </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+  <dialog id="signupModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      
     </div>
     <form method="dialog" class="modal-backdrop">
       <button>close</button>
