@@ -19,10 +19,7 @@
         <h1 class="mb-6 text-5xl font-bold text-cyan-50 py-2">Hello there!</h1>
 
         <div class="btn-group">
-          <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
-          <button class="btn btn-accent">
-            <div><a href="/login">Login</a></div>
-          </button>
+          <button class="btn" onclick="my_modal_5.showModal()">Login</button>
           <button class="btn btn-primary">
             <div><a href="/signup">Signup</a></div>
           </button>
@@ -33,18 +30,22 @@
 
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <%}%> <% if (locals.messages.info) { %> <%
+          messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <%}%>
       <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
         <div class="relative bg-white dark:bg-gray-700">
-          <!-- Modal header -->
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
               Sign in to the Dasboard
             </h3>
           </div>
-          <!-- Modal body -->
+
           <div class="p-4 md:p-5">
-            <form class="space-y-4" action="#">
+            <form class="space-y-4" action="/login" method="POST">
               <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                 <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required>
@@ -71,6 +72,9 @@
         </div>
       </div>
     </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
   </dialog>
 
 </html>
