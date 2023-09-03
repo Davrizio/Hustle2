@@ -10151,6 +10151,11 @@ details.collapse summary::-webkit-details-marker {
   padding-bottom: 0.625rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }
