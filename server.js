@@ -14,6 +14,7 @@ const apptRoutes = require("./routes/appts");
 const clientRoutes = require("./routes/clients");
 const commentRoutes = require("./routes/comments");
 const clientWorkoutRoutes = require("./routes/clientWorkout");
+const passwordResetRoutes = require("./routes/passwordReset");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -64,6 +65,7 @@ app.use("/client", clientRoutes);
 app.use("/comment", commentRoutes);
 app.use("/clientWorkout", clientWorkoutRoutes);
 app.use("/appointment", apptRoutes);
+app.use("/passwordReset", passwordResetRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {

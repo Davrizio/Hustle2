@@ -7,6 +7,7 @@ const clientsController = require("../controllers/clients");
 const exercisesController = require("../controllers/exercises");
 const clientWorkoutController = require("../controllers/clientWorkout");
 const apptsController = require("../controllers/appts");
+const passwordRoutes = require("../routes/passwordReset");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/", homeController.getIndex);
@@ -17,6 +18,7 @@ router.get("/clients", ensureAuth, clientsController.getClient);
 router.get("/client", ensureAuth, clientsController.getClient);
 router.get("/start", ensureAuth, startController.getStart);
 router.get("/login", authController.getLogin);
+router.get("/password-reset", passwordRoutes);
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
