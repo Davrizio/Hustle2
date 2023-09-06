@@ -14,7 +14,6 @@ module.exports = {
   },
 
   postResetCheck: async (req, res) => {
-    console.log(req.body.email);
     try {
       const schema = Joi.object({ email: Joi.string().email().required() });
       const { error } = schema.validate(req.body);
@@ -32,10 +31,10 @@ module.exports = {
         }).save();
       }
 
-      const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
+      const link = `${process.env.BASE_URL}/password-reset/?user=${user._id}&token=${token.token}`;
       await sendEmail(user.email, "Password reset", link);
 
-      res.send("password reset link sent to your email account");
+      res.render("passwordResetUserInput.ejs");
     } catch (error) {
       res.send("An error occured");
       console.log(error);
