@@ -19,8 +19,16 @@ router.get("/clients", ensureAuth, clientsController.getClient);
 router.get("/client", ensureAuth, clientsController.getClient);
 router.get("/start", ensureAuth, startController.getStart);
 router.get("/login", authController.getLogin);
-router.get("/password-reset", passwordRoutes);
+router.get("/password-reset", passwordController.getReset);
+
 router.get("/passwordReset", passwordController.getResetUserInput);
+/*router.get(
+  "/passwordReset/",
+  (req, res) => {
+    let route = `GET /passwordReset/${req.params.userId}`;
+  },
+  passwordController.getResetUserInput
+);*/
 
 router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
