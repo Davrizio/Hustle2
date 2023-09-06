@@ -9,6 +9,10 @@ module.exports = {
     res.render("passwordReset.ejs");
   },
 
+  getResetUserInput: (req, res) => {
+    res.render("passwordResetUserInput.ejs");
+  },
+
   postResetCheck: async (req, res) => {
     console.log(req.body.email);
     try {

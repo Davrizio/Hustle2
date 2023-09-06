@@ -5,10 +5,10 @@ const sendEmail = async (email, subject, text) => {
     const transporter = nodemailer.createTransport({
       host: process.env.HOST,
       service: process.env.SERVICE,
-      port: 587,
+      port: 465,
       secure: true,
       auth: {
-        user: process.env.USER,
+        user: process.env.EMAILUSER,
         pass: process.env.PASS
       }
     });
@@ -24,6 +24,7 @@ const sendEmail = async (email, subject, text) => {
   } catch (error) {
     console.log(error, "email not sent");
   }
+  console.log(process.env.EMAILUSER, process.env.PASS);
 };
 
 module.exports = sendEmail;
