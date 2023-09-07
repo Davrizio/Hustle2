@@ -3,6 +3,19 @@ const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const Joi = require("joi");
+const cls = require('cls-hooked');
+const namespace = cls.createNamespace('my-namespace');
+
+let passwordResetUser;
+let passwordResetToken;
+
+
+function passwordResetUserAndToken() {
+  const req = namespace.get('request');
+  passwordResetUser = req.params.userId;
+  passwordResetToken = req.params.token;
+  console.log(req.params);
+}
 
 module.exports = {
   getReset: (req, res) => {
@@ -11,6 +24,10 @@ module.exports = {
 
   getResetUserInput: (req, res) => {
     res.render("passwordResetUserInput.ejs");
+    namespace.run(() => {
+      namespace.set('request', req);
+      passwordResetUserAndToken();
+    });
   },
 
   postResetCheck: async (req, res) => {
@@ -41,18 +58,17 @@ module.exports = {
   },
 
   postReset: async (req, res) => {
-    console.log(req.query.userId);
     try {
       const schema = Joi.object({ password: Joi.string().required() });
       const { error } = schema.validate(req.body);
       if (error) return res.status(400).send(error.details[0].message);
 
-      const user = await User.findById(req.params.userId);
+      const user = await User.findById(passwordResetUser);
       if (!user) return res.status(400).send("invalid link or expired");
 
       const token = await Token.findOne({
         userId: user._id,
-        token: req.params.token
+        token: passwordResetUser
       });
       if (!token) return res.status(400).send("Invalid link or expired");
 
