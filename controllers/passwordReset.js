@@ -12,9 +12,9 @@ let passwordResetToken;
 
 function passwordResetUserAndToken() {
   const req = namespace.get('request');
-  passwordResetUser = req.params.userId;
-  passwordResetToken = req.params.token;
-  console.log(req.params);
+  passwordResetUser = req.query.user;
+  passwordResetToken = req.query.token;
+  console.log(req.query);
 }
 
 module.exports = {
@@ -58,19 +58,20 @@ module.exports = {
   },
 
   postReset: async (req, res) => {
+    console.log(passwordResetUser, passwordResetToken)
     try {
       const schema = Joi.object({ password: Joi.string().required() });
       const { error } = schema.validate(req.body);
       if (error) return res.status(400).send(error.details[0].message);
 
       const user = await User.findById(passwordResetUser);
-      if (!user) return res.status(400).send("invalid link or expired");
+      if (!user) return res.status(400).send("invalid link or expired userID");
 
       const token = await Token.findOne({
         userId: user._id,
-        token: passwordResetUser
+        token: passwordResetToken
       });
-      if (!token) return res.status(400).send("Invalid link or expired");
+      if (!token) return res.status(400).send("Invalid link or expired Token");
 
       user.password = req.body.password;
       await user.save();

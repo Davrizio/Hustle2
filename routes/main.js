@@ -20,7 +20,7 @@ router.get("/client", ensureAuth, clientsController.getClient);
 router.get("/start", ensureAuth, startController.getStart);
 router.get("/login", authController.getLogin);
 router.get("/password-reset", passwordController.getReset);
-router.get("/passwordReset/:userID/:token", passwordController.getResetUserInput);
+router.get("/passwordReset", passwordController.getResetUserInput);
 
 
 router.post("/login", authController.postLogin);
