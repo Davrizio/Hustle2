@@ -11,6 +11,22 @@
 </head>
 
 <body>
+  <% if (locals.messages.errors) { %> 
+    <% messages.errors.forEach( el => { %>
+      <div class="toast toast-top toast-center">
+        <div class="alert alert-warning">
+          <div><%= el.msg %></div>
+        </div>
+      </div>
+    <% }) %> <%}%> <% if (locals.messages.info) { %> 
+    <% messages.info.forEach( el => { %>
+      <div class="toast toast-top toast-center">
+        <div class="alert alert-info">
+          <div><%= el.msg %></div>
+        </div>
+      </div>
+    <% }) %> <%}%>
+
   <div class="hero min-h-screen" style="background-image: url(/imgs/gym.png);">
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-center text-neutral-content">
@@ -27,12 +43,6 @@
 
   <dialog id="loginModal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <%}%> <% if (locals.messages.info) { %> <%
-          messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
-      <% }) %> <%}%>
       <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white dark:bg-gray-700">
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
@@ -54,7 +64,7 @@
               <div class="flex justify-between">
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="remember" name="remember" type="checkbox" value="true" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
+                    <input id="remember" name="remember" type="checkbox" value="true" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800">
                   </div>
                   <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
                 </div>
@@ -75,12 +85,6 @@
   </dialog>
   <dialog id="signupModal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <%}%> <% if (locals.messages.info) { %> <%
-          messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
-      <% }) %> <%}%>
       <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white dark:bg-gray-700">
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
