@@ -58,26 +58,26 @@ module.exports = {
   },
 
   postReset: async (req, res) => {
-    console.log(passwordResetUser, passwordResetToken)
     try {
       const schema = Joi.object({ password: Joi.string().required() });
       const { error } = schema.validate(req.body);
       if (error) return res.status(400).send(error.details[0].message);
 
       const user = await User.findById(passwordResetUser);
-      if (!user) return res.status(400).send("invalid link or expired userID");
+      if (!user) return res.status(400).send("Invalid link - user not found");
 
       const token = await Token.findOne({
         userId: user._id,
         token: passwordResetToken
       });
-      if (!token) return res.status(400).send("Invalid link or expired Token");
+      if (!token) return res.status(400).send("Invalid link or link expired");
 
       user.password = req.body.password;
       await user.save();
       await token.delete();
 
       res.send("password reset sucessfully.");
+      res.render("login.ejs");
     } catch (error) {
       res.send("An error occured");
       console.log(error);
