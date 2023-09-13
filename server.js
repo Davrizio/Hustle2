@@ -15,7 +15,6 @@ const clientRoutes = require("./routes/clients");
 const commentRoutes = require("./routes/comments");
 const clientWorkoutRoutes = require("./routes/clientWorkout");
 const passwordResetRoutes = require("./routes/passwordReset");
-const flowbite = require('flowbite')
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });

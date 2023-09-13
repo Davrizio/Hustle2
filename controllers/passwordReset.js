@@ -50,9 +50,9 @@ module.exports = {
 
       const link = `${process.env.BASE_URL}/passwordReset/?user=${user._id}&token=${token.token}`;
       await sendEmail(user.email, "Password reset", link);
-      res.render("index.ejs");
+      res.redirect("/index");
     } catch (error) {
-      res.send("An error occured");
+      req.flash("errors", { msg: "Ooops! An Error Occurred" });
       console.log(error);
     }
   },
@@ -76,10 +76,10 @@ module.exports = {
       await user.save();
       await token.delete();
 
-      res.send("password reset sucessfully.");
-      res.render("login.ejs");
+      req.flash("success", { msg: "Success! Your Password has been changed. Please login with new password" });
+      res.redirect("/login");
     } catch (error) {
-      res.send("An error occured");
+      req.flash("errors", { msg: "Ooops! An Error Occurred" });
       console.log(error);
     }
   }
