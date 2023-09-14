@@ -1,6 +1,7 @@
 module.exports = {
   
   getIndex: (req, res) => {
-    res.render("index.ejs");
+    console.log("getIndex", {messages: req.flash('errors')})
+    res.render("index.ejs", { messages: req.flash('errors') });
   },
 };

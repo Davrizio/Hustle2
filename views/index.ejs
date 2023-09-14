@@ -14,16 +14,19 @@
   <% if (locals.messages.errors) { %> 
     <% messages.errors.forEach( el => { %>
       <div class="toast toast-top toast-center">
-        <div class="alert alert-warning">
+        <div class="alert alert-info">
           <div><%= el.msg %></div>
         </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
       </div>
     <% }) %> 
-  <% } %> 
+  <% } %>
   <% if (locals.messages.info) { %> 
     <% messages.info.forEach( el => { %>
       <div class="toast toast-top toast-center">
-        <div class="alert alert-info">
+        <div class="alert alert-info alert-dismissible fade show">
           <div><%= el.msg %></div>
         </div>
       </div>

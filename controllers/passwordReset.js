@@ -49,6 +49,7 @@ module.exports = {
 
       const link = `${process.env.BASE_URL}/passwordReset/?user=${user._id}&token=${token.token}`;
       await sendEmail(user.email, "Password reset", link);
+      req.flash("success", { msg: "Email has been sent!" });
       res.redirect("/");
     } catch (error) {
       req.flash("errors", { msg: "Ooops! An Error Occurred" });
@@ -63,13 +64,13 @@ module.exports = {
       if (error) return res.status(400).send(error.details[0].message);
 
       const user = await User.findById(passwordResetUser);
-      if (!user) return res.status(400).send("Invalid link - user not found");
+      if (!user) return req.flash("errors", { msg: "Invalid link or link expired" }), res.redirect("/");
 
       const token = await Token.findOne({
         userId: user._id,
         token: passwordResetToken
       });
-      if (!token) return res.status(400).send("Invalid link or link expired");
+      if (!token) return req.flash("errors", { msg: "Invalid link or link expired" }), res.redirect("/");
 
       user.password = req.body.password;
       await user.save();
