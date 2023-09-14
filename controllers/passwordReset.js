@@ -14,7 +14,6 @@ function passwordResetUserAndToken() {
   const req = namespace.get('request');
   passwordResetUser = req.query.user;
   passwordResetToken = req.query.token;
-  console.log(req.query);
 }
 
 module.exports = {
@@ -50,7 +49,7 @@ module.exports = {
 
       const link = `${process.env.BASE_URL}/passwordReset/?user=${user._id}&token=${token.token}`;
       await sendEmail(user.email, "Password reset", link);
-      res.redirect("/index");
+      res.redirect("/");
     } catch (error) {
       req.flash("errors", { msg: "Ooops! An Error Occurred" });
       console.log(error);

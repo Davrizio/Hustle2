@@ -11,7 +11,7 @@ module.exports = {
     try {
       const posts = await Appts.find({ user: req.user.id });
       const clientList = await ClientList.find({ user: req.user.id });
-      res.render("appointments.ejs", { posts: posts, user: req.user, clientList: clientList });
+      res.render("appointments.ejs", { posts: posts, user: req.user, clientList: clientList});
     } catch (err) {
       console.log(err);
     }
