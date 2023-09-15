@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect("/start");
+    return res.redirect("/appointments");
   }
   res.render("login", {
     title: "Login"
@@ -19,6 +19,7 @@ exports.postLogin = (req, res, next) => {
     validationErrors.push({ msg: "Password cannot be blank." });
 
   if (validationErrors.length) {
+    console.log("validation errors", validationErrors)
     req.flash("errors", validationErrors);
     return res.redirect("/");
   }
@@ -27,6 +28,7 @@ exports.postLogin = (req, res, next) => {
   });
 
   passport.authenticate("local", (err, user, info) => {
+    console.log(info)
     if (err) {
       return next(err);
     }

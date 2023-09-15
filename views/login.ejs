@@ -1,17 +1,6 @@
-<html lang="en" data-theme="fantasy">
+<%- include('partials/headerLogoOnly') -%>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hustle!</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/imgs/favicon-32x32.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="../css/output.css" type="text/css" />
-</head>
-
-<body>
-  <main class="flex flex-col w-full border-opacity-50">
+<main class="flex flex-col w-full border-opacity-50">
     <% if (locals.messages.errors) { %> 
       <% messages.errors.forEach( el => { %>
         <div class="toast toast-top toast-center">
@@ -70,12 +59,6 @@
                         <a href="/password-reset" class="label-text-alt link link-hover">Forgot password?</a>
                       </label>
                     </div>
-                    <div class="form-control flex items-start">
-                     <div class="flex items-center h-5">
-                      <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
-                     </div>
-                     <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-                    </div>
                     <div class="form-control mt-6">
                       <button class="btn btn-info hover:bg-primary">Login</button>
                     </div>
@@ -86,5 +69,5 @@
           </form>
         </section>
       </div>
-    </main>
-    <%- include('partials/footer') -%>
+</main>
+<%- include('partials/footer') -%>
