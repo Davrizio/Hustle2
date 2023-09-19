@@ -1,22 +1,7 @@
-<html lang="en" data-theme="fantasy">
+<%- include('partials/headerLogoOnly') -%>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hustle!</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/imgs/favicon-32x32.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="../css/output.css" type="text/css" />
-</head>
-
-<body>
-  <main class="flex flex-col w-full border-opacity-50">
+<main class="flex flex-col w-full border-opacity-50">
     <div class="grid h-920 place-items-center py-3">
-      <div class="navbar-center">
-        <a href="/login"><img class="object-contain" src="/imgs/logo.jpg"></a>
-      </div>
-
       <section class="col-6 mt-5">
         <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
@@ -44,37 +29,32 @@
                       <label class="label">
                         <span class="label-text">Username</span>
                       </label>
-                      <input type="text" placeholder="ex. The Rock" class="input input-bordered" id="userName" name="userName"/>
+                      <input type="text" placeholder="" class="input input-bordered" id="userName" name="userName"/>
                     </div>
                     
                     <div class="form-control">
                       <label class="label">
                         <span class="label-text">Email</span>
                       </label>
-                        <input type="email" placeholder="ex. you@mail.com" class="input input-bordered" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
+                        <input type="email" placeholder="" class="input input-bordered" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
                     </div>
 
                     <div class="form-control">
                       <label class="label">
                         <span class="label-text">Password</span>
                       </label>
-                      <input type="password" placeholder="........" class="input input-bordered" id="password" name="password"/>
+                      <input type="password" placeholder="••••••••" class="input input-bordered" id="password" name="password"/>
                     </div>
                        
                     <div class="form-control">
                       <label class="label">
                         <span class="label-text"> Confirm Password</span>
                       </label>
-                      <input type="password" placeholder="........" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
+                      <input type="password" placeholder="••••••••" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
                       <label class="label">
                         <a href="/login" class="label-text-alt link link-hover">Already A Member?</a>
                       </label>
                     </div>
-                    <div class="flex items-center h-5">
-                      <input id="remember" type="checkbox" value="true" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" name="remember">
-                    </div>
-                    <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-
                     <div class="form-control mt-6">
                       <button class="btn btn-info hover:bg-primary">Signup</button>
                     </div>
@@ -86,4 +66,4 @@
         </section>
       </div>
     </main>
-    <%- include('partials/footer') -%>
+<%- include('partials/footer') -%>
