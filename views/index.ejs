@@ -11,37 +11,7 @@
 </head>
 
 <body>
-  <% if (locals.messages.errors) { %> 
-    <% messages.errors.forEach( el => { %>
-      <div class="toast toast-top toast-center">
-        <div class="alert alert-info">
-          <div><%= el.msg %></div>
-        </div>
-        <form method="dialog" class="modal-backdrop">
-          <button>close</button>
-        </form>
-      </div>
-    <% }) %> 
-  <% } %>
-  <% if (locals.messages.info) { %> 
-    <% messages.info.forEach( el => { %>
-      <div class="toast toast-top toast-center">
-        <div class="alert alert-info alert-dismissible fade show">
-          <div><%= el.msg %></div>
-        </div>
-      </div>
-    <% }) %> 
-  <% } %>
-  <% if (locals.messages.success) { %> 
-    <% messages.success.forEach( el => { %>
-      <div class="toast toast-top toast-center">
-        <div class="alert alert-success">
-          <div><%= el.msg %></div>
-        </div>
-      </div>
-    <% }) %> 
-  <% } %>
-
+  <%- include('partials/toast') -%>
   <div class="hero min-h-screen" style="background-image: url(/imgs/gym.png);">
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-center text-neutral-content">

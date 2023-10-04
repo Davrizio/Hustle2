@@ -1,33 +1,7 @@
 <%- include('partials/header') -%>
 
 <main>
-  <% if (locals.messages.errors) { %> 
-    <% messages.errors.forEach( el => { %>
-      <div class="toast toast-top toast-center">
-        <div class="alert alert-warning">
-          <div><%= el.msg %></div>
-        </div>
-      </div>
-    <% }) %> 
-  <% } %> 
-  <% if (locals.messages.info) { %> 
-    <% messages.info.forEach( el => { %>
-      <div class="toast toast-top toast-center">
-        <div class="alert alert-info">
-          <div><%= el.msg %></div>
-        </div>
-      </div>
-    <% }) %> 
-  <% } %>
-  <% if (locals.messages.success) { %> 
-    <% messages.success.forEach( el => { %>
-      <div class="toast toast-top toast-center">
-        <div class="alert alert-success">
-          <div><%= el.msg %></div>
-        </div>
-      </div>
-    <% }) %> 
-  <% } %>
+  <%- include('partials/toast') -%>
   <section>
     <form action="/login" method="POST">
        <div class="hero min-h-screen" style="background-image: url(/imgs/gym.png);">
