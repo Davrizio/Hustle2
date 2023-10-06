@@ -1,84 +1,51 @@
-<%- include('partials/headerLogoOnly') -%>
-
-<main class="flex flex-col w-full border-opacity-50">
-    <div class="grid h-920 place-items-center py-3">
-      <section class="col-6 mt-5">
-        <% if (locals.messages.errors) { %> 
-          <% messages.errors.forEach( el => { %>
-            <div class="toast toast-top toast-center">
-              <div class="alert alert-warning">
-                <div><%= el.msg %></div>
-              </div>
-            </div>
-          <% }) %> 
-        <% } %> 
-        <% if (locals.messages.info) { %> 
-          <% messages.info.forEach( el => { %>
-            <div class="toast toast-top toast-center">
-              <div class="alert alert-info">
-                <div><%= el.msg %></div>
-              </div>
-            </div>
-          <% }) %> 
-        <% } %>
-        <% if (locals.messages.success) { %> 
-          <% messages.success.forEach( el => { %>
-            <div class="toast toast-top toast-center">
-              <div class="alert alert-success">
-                <div><%= el.msg %></div>
-              </div>
-            </div>
-          <% }) %> 
-        <% } %>
-          <form action="/signup" method="POST">
-            <div class="hero min-h-screen">
-              <div class="hero-content flex-col lg:flex-row-reverse">
-                <div class="text-center lg:text-left">
-                  <h1 class="text-5xl font-bold">Signup!</h1>
-                  <p class="py-6">Start adding clients and creating awesome workouts!</p>
+<%- include('partials/header') -%>
+<main>
+  <section class="col-6 mt-5">
+    <%- include('partials/toast') -%>
+    <form action="/signup" method="POST">
+      <div class="hero min-h-screen" style="background-image: url(/imgs/gym.png);">
+        <div class="hero-content">
+          <div class="max-w-md">
+            <div class="py-10 flex justify-center"><img src="/imgs/logo.jpg">
+            </div> 
+            <div class="card flex-shrink-0 w-full shadow-2xl bg-primary">
+              <div class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Username</span>
+                  </label>
+                  <input type="text" placeholder="you@gmail.com" class="input input-bordered" id="userName" name="userName"/>
+                </div>                   
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Email</span>
+                  </label>
+                    <input type="email" placeholder="you@gmail.com" class="input input-bordered" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
                 </div>
-                
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-secondary">
-                  <div class="card-body">
-                    <div class="form-control">
-                      <label class="label">
-                        <span class="label-text">Username</span>
-                      </label>
-                      <input type="text" placeholder="" class="input input-bordered" id="userName" name="userName"/>
-                    </div>
-                    
-                    <div class="form-control">
-                      <label class="label">
-                        <span class="label-text">Email</span>
-                      </label>
-                        <input type="email" placeholder="" class="input input-bordered" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
-                    </div>
-
-                    <div class="form-control">
-                      <label class="label">
-                        <span class="label-text">Password</span>
-                      </label>
-                      <input type="password" placeholder="••••••••" class="input input-bordered" id="password" name="password"/>
-                    </div>
-                       
-                    <div class="form-control">
-                      <label class="label">
-                        <span class="label-text"> Confirm Password</span>
-                      </label>
-                      <input type="password" placeholder="••••••••" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
-                      <label class="label">
-                        <a href="/login" class="label-text-alt link link-hover">Already A Member?</a>
-                      </label>
-                    </div>
-                    <div class="form-control mt-6">
-                      <button class="btn btn-info hover:bg-primary">Signup</button>
-                    </div>
-                  </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Password</span>
+                  </label>
+                  <input type="password" placeholder="••••••••" class="input input-bordered" id="password" name="password"/>
+                </div>                     
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text"> Confirm Password</span>
+                  </label>
+                  <input type="password" placeholder="••••••••" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
+                  <label class="label">
+                    <a href="/login" class="label-text-alt link link-hover">Already A Member?</a>
+                  </label>
+                </div>
+                <div class="form-control mt-6">
+                  <button class="btn btn-info hover:bg-primary">Signup</button>
                 </div>
               </div>
             </div>
-          </form>
-        </section>
+          </div>
+        </div>
       </div>
-    </main>
+    </form>
+  </section>
+</main>
 <%- include('partials/footer') -%>
