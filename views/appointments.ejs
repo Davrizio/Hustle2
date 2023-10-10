@@ -1,39 +1,10 @@
 <%- include('partials/headerWithMenu') -%>
-<div>
-  <form action="/appointment/createPost" enctype="multipart/form-data" method="POST">
-    <div class="hero py-3">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-secondary">
-          <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Add Date</span>
-              </label>
-              <input type="datetime-local" placeholder="MM/DD/YYY" class="input input-bordered" id="date" name="date"/>
-              <label class="label">
-                <span class="label-text">Select Client</span>
-              </label>
-              <select class="select select-success max-w-xs" name="client">
-                <option class="disabled selected w-auto">Client</option>
-                <% let options = []; %>
-                <% for(i=0; i<clientList.length; i++) {%>
-                  <option value="<%= clientList[i].id %>"><%= clientList[i].name.toUpperCase() %></option>
-                <%}%>
-              </select>
-            <div class="form-control mt-6">
-              <button type="submit" class="btn btn-info" value="Upload">Save</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-
-  <div class="hero py-3 mb-20">
-    <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-secondary">
+<main class="mb-auto">
+  <div class="py-3 mb-20">
+    <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-primary">
       <div class="card-body">
         <div class="overflow-x-auto w-full">
           <table class="table w-full">
-             <!-- head -->
             <thead>
                <tr>
                 <th>Date</th>
@@ -91,7 +62,6 @@
                  </tr>
                <%}%>
             </tbody>
-             <!-- foot -->
             <tfoot>
                <tr>
                 <th>Date</th>
@@ -105,6 +75,39 @@
          </div>
        </div>
      </div>
-   </div>  
-</div>
+  </div>
+  <button class="btn" onclick="appointmentModal.showModal()">Add Appointment</button>
+
+  <dialog id="appointmentModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <div class="relative p-4 w-full max-w-md max-h-full">   
+        <div class="flex justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Add Appointment</h3>
+        </div>
+        <div class="p-4 md:p-5">
+          <form action="/appointment/createPost" enctype="multipart/form-data" method="POST">
+            <label class="label">
+              <span class="label-text">Add Date</span>
+            </label>
+            <input type="datetime-local" placeholder="MM/DD/YYY" class="input input-bordered" id="date" name="date"/>
+            <label class="label">
+              <span class="label-text">Select Client</span>
+            </label>
+            <select class="select select-success max-w-xs" name="client">
+              <option class="disabled selected w-auto">Client</option>
+              <% let options = []; %>
+              <% for(i=0; i<clientList.length; i++) {%>
+                <option value="<%= clientList[i].id %>"><%= clientList[i].name.toUpperCase() %></option>
+              <%}%>
+            </select>
+            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+          </form>
+        </div>      
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+</main>
 <%- include('partials/footer') -%>
