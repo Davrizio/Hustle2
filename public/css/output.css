@@ -10736,6 +10736,111 @@ details.collapse summary::-webkit-details-marker {
     }
   }
 
+  .sm\:btn-square {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .sm\:btn-xs {
+    height: 1.5rem;
+    min-height: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .sm\:btn-sm {
+    height: 2rem;
+    min-height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .sm\:btn-md {
+    height: 3rem;
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .sm\:btn-wide {
+    width: 16rem;
+  }
+
+  .sm\:btn-square:where(.btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.sm\:btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0px;
+  }
+
+  .sm\:btn-square:where(.btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.sm\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .sm\:btn-square:where(.btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.sm\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .sm\:btn-square:where(.btn-lg) {
+    height: 4rem;
+    width: 4rem;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.sm\:btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.sm\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.sm\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .sm\:input-sm, input.sm\:input-sm {
+    height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 2rem;
+  }
+
   .sm\:modal-middle {
     place-items: center;
   }
@@ -10751,6 +10856,266 @@ details.collapse summary::-webkit-details-marker {
     border-top-right-radius: var(--rounded-box, 1rem);
     border-bottom-right-radius: var(--rounded-box, 1rem);
     border-bottom-left-radius: var(--rounded-box, 1rem);
+  }
+
+  .sm\:table-sm :not(thead):not(tfoot) tr {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:table-sm :where(th, td) {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .sm\:table-md :not(thead):not(tfoot) tr {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:table-md :where(th, td) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:btn-square {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .md\:btn-sm {
+    height: 2rem;
+    min-height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .md\:btn-md {
+    height: 3rem;
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .md\:btn-square:where(.btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0px;
+  }
+
+  .md\:btn-square:where(.btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.md\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .md\:btn-square:where(.btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.md\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .md\:btn-square:where(.btn-lg) {
+    height: 4rem;
+    width: 4rem;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.md\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.md\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .md\:input-md, input.md\:input-md {
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    line-height: 2;
+  }
+
+  .md\:table-md :not(thead):not(tfoot) tr {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:table-md :where(th, td) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:btn-square {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .lg\:btn-xs {
+    height: 1.5rem;
+    min-height: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .lg\:btn-sm {
+    height: 2rem;
+    min-height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .lg\:btn-md {
+    height: 3rem;
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .lg\:btn-lg {
+    height: 4rem;
+    min-height: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 1.125rem;
+  }
+
+  .lg\:btn-wide {
+    width: 16rem;
+  }
+
+  .lg\:btn-square:where(.btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.lg\:btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0px;
+  }
+
+  .lg\:btn-square:where(.btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.lg\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    padding: 0px;
+  }
+
+  .lg\:btn-square:where(.btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.lg\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .lg\:btn-square:where(.btn-lg) {
+    height: 4rem;
+    width: 4rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.lg\:btn-lg) {
+    height: 4rem;
+    width: 4rem;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.lg\:btn-xs) {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.lg\:btn-sm) {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.lg\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.lg\:btn-lg) {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .lg\:input-md, input.lg\:input-md {
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    line-height: 2;
+  }
+
+  .lg\:table-md :not(thead):not(tfoot) tr {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .lg\:table-md :where(th, td) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }
 

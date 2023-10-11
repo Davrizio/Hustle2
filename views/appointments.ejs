@@ -1,10 +1,10 @@
 <%- include('partials/headerWithMenu') -%>
 <main class="mb-auto">
   <div class="py-3 mb-20">
-    <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-primary">
+    <div class="card">
       <div class="card-body">
-        <div class="overflow-x-auto w-full">
-          <table class="table w-full">
+        <div class="">
+          <table class="table table-xs sm:table-sm md:table-md lg:table-md">
             <thead>
                <tr>
                 <th>Date</th>
@@ -37,9 +37,9 @@
                       <form action="/appointment/editPost/<%= posts[i].id %>?_method=PUT" method="POST">
                          <div class="form-control">
                            <div class="input-group">
-                            <input type="datetime-local" class="input input-bordered" id="editDate" name="editDate"/>
+                            <input type="datetime-local" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md" id="editDate" name="editDate"/>
                             <input type="hidden" id="editClient"  name="editClient" value="<%= posts[i].client %>"></input>
-                             <button type="submit" class="btn btn-square" value="Upload">Save</button>
+                            <button type="submit" class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md" value="Upload">Save</button>
                            </div> 
                          </div> 
                        </form>
@@ -53,7 +53,7 @@
                      </div>
                    </th>
                    <th>
-                    <button class="btn">
+                    <button class="btn-square">
                        <div>
                         <a href="/appointment/<%= posts[i]._id%>" >Workout</a>
                        </div>
