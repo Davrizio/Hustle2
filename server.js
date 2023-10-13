@@ -15,6 +15,10 @@ const clientRoutes = require("./routes/clients");
 const commentRoutes = require("./routes/comments");
 const clientWorkoutRoutes = require("./routes/clientWorkout");
 const passwordResetRoutes = require("./routes/passwordReset");
+const { DateTime } = require("luxon");
+
+//Use Luxon to parse dates
+app.locals.DateTime = DateTime
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
