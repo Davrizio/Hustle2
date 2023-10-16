@@ -12,19 +12,22 @@
         </tr>
       </thead>
       <tbody>
+        <% const appointments = [] %>
         <% for(i=0; i<posts.length; i++) {%>
+          <% appointments.push(posts[i]) %>
+        <% } %>
+        <% let appointmentsSorted = appointments.sort((a,b) => DateTime.fromISO(a.date).toMillis() - DateTime.fromISO(b.date).toMillis()) %>
+        <% for(i=0; i < appointmentsSorted.length; i++) {%>
           <tr>
              <td>
               <div>
-                <% const apptDate = new Date(posts[i].date).toString() %>
-                <% const date = DateTime.fromISO(posts[i].date) %>
-                <h2><%= date %></h2>
-                <h2><%= apptDate.substring(0,15) %> @ <%= apptDate.substring(16,21) %></h2>
+                <% const date = DateTime.fromISO(appointmentsSorted[i].date) %>
+                <h2><%= date.toLocaleString(DateTime.DATETIME_MED) %></h2>
               </div>
              </td>
             <td>
               <% const clientls = clientList; %>
-              <% const clientlsResult = clientls.find(({id}) => id == posts[i].client); %>
+              <% const clientlsResult = clientls.find(({id}) => id == appointmentsSorted[i].client); %>
               <% if(clientlsResult == undefined){ %>
               <span></span>
               <%}else{ %>
@@ -33,7 +36,7 @@
             </td>
             <th>
               <div>
-                <form action="/appointment/editPost/<%= posts[i].id %>?_method=PUT" method="POST">
+                <form action="/appointment/editPost/<%= appointmentsSorted[i].id %>?_method=PUT" method="POST">
                    <div class="form-control">
                      <div class="input-group">
                       <input type="datetime-local" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md" id="editDate" name="editDate"/>
@@ -46,7 +49,7 @@
             </th>
              <th>
               <div class="avatar">
-                 <form action="/appointment/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST">
+                 <form action="/appointment/deletePost/<%= appointmentsSorted[i]._id %>?_method=DELETE" method="POST">
                   <button class="btn fa fa-trash" type="submit"></button>
                  </form>
                </div>
@@ -54,7 +57,7 @@
              <th>
               <button class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md">
                  <div>
-                  <a href="/appointment/<%= posts[i]._id%>" >Workout</a>
+                  <a href="/appointment/<%= appointmentsSorted[i]._id%>" >Workout</a>
                  </div>
                </button>
              </th>
