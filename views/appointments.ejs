@@ -16,7 +16,7 @@
         <% for(i=0; i<posts.length; i++) {%>
           <% appointments.push(posts[i]) %>
         <% } %>
-        <% let appointmentsSorted = appointments.sort((a,b) => DateTime.fromISO(a.date).toMillis() - DateTime.fromISO(b.date).toMillis()) %>
+        <% let appointmentsSorted = appointments.sort((a,b) => DateTime.fromISO(b.date).toMillis() - DateTime.fromISO(a.date).toMillis()) %>
         <% for(i=0; i < appointmentsSorted.length; i++) {%>
           <tr>
              <td>
@@ -82,31 +82,29 @@
   </div>
   
   <dialog id="appointmentModal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
-      <div class="relative p-4 w-full max-w-md max-h-full">   
-        <div class="flex justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Add Appointment</h3>
-        </div>
-        <div class="p-4 md:p-5">
-          <form action="/appointment/createPost" enctype="multipart/form-data" method="POST">
-            <label class="label">
-              <span class="label-text">Add Date</span>
-            </label>
-            <input type="datetime-local" placeholder="MM/DD/YYY" class="input input-bordered" id="date" name="date"/>
-            <label class="label">
-              <span class="label-text">Select Client</span>
-            </label>
-            <select class="select select-success max-w-xs" name="client">
-              <option class="disabled selected w-auto">Client</option>
-              <% let options = []; %>
-              <% for(i=0; i<clientList.length; i++) {%>
-                <option value="<%= clientList[i].id %>"><%= clientList[i].name.toUpperCase() %></option>
-              <%}%>
-            </select>
-            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
-          </form>
-        </div>      
-      </div>
+    <div class="modal-box flex-auto">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Add Appointment</h3> 
+      <div class="">
+        <form action="/appointment/createPost" enctype="multipart/form-data" method="POST">
+          <label class="label">
+            <span class="label-text">Date and Time</span>
+          </label>
+          <input type="datetime-local" placeholder="MM/DD/YYY" class="input input-bordered w-full" id="date" name="date"/>
+          <label class="label">
+            <span class="label-text">Select Client</span>
+          </label>
+          <select class="select select-bordered w-full" name="client">
+            <option class="disabled selected w-auto">Client</option>
+            <% let options = []; %>
+            <% for(i=0; i<clientList.length; i++) {%>
+              <option value="<%= clientList[i].id %>"><%= clientList[i].name.toUpperCase() %></option>
+            <% } %>
+          </select>
+          <div class="w-full flex justify-end">
+            <button type="submit" class="btn mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+          </div>
+        </form>
+      </div>      
     </div>
     <form method="dialog" class="modal-backdrop">
       <button>close</button>
