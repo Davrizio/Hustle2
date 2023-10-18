@@ -1,51 +1,5 @@
-<%- include('partials/header') -%>
-<div>
-<div class="grid grid-cols-4 grid-rows-4 content-center gap-8">
-  <div class="col-span-1 row-span-4"></div>
-  <form action="/client/createPostClient" enctype="multipart/form-data" method="POST" class="col-span-2 row-span-4">
-    <div>
-      <div class="card shadow-2xl bg-secondary">
-        <div class="card-body">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Client Name</span>
-            </label>
-            <input type="text" placeholder="ex. The Rock" class="input input-bordered" id="name" name="name"/>
-          </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Client Address</span>
-            </label>
-            <input type="text" placeholder="ex. 12" class="input input-bordered" id="address" name="address"/>
-          </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Client Phone Number</span>
-            </label>
-            <input type="tel" placeholder="ex. 407-222-1111" class="input input-bordered" id="phone" name="phone"/>
-          </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Client Email</span>
-            </label>
-            <input type="email" placeholder="ex. bob@gmail.com" class="input input-bordered" id="email" name="email"/>
-          </div>
-          <div class="form-control">
-            <label for="imgUpload" class="block mb-2 text-sm font-medium">Photo</label>
-            <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium hover:file:cursor-pointer hover:file:bg-base-100 hover:file:text-base-100" id="imageUpload" name="file">
-          </div>
-          <div class="form-control mt-6">
-            <button type="submit" class="btn btn-info" value="Upload">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-
-  <div class="col-span-1 row-span-4"></div>
-
-  <div class="col-span-1 row-span-4"></div>
-  
+<%- include('partials/headerWithMenu') -%>
+<main>
   <div class="col-span-2 row-span-4">
     <div class="card shadow-2xl bg-secondary">
       <div class="card-body">
@@ -97,6 +51,48 @@
         </div>
       </div>
     </div>
-  </div>  
-</div>
+  </div>
+  <div class="col-span-1 place-self-center">
+    <button class="btn btn-long" onclick="clientModal.showModal()">Add Appointment</button>
+  </div>
+  <form action="/client/createPostClient" enctype="multipart/form-data" method="POST" class="col-span-2 row-span-4">
+    <div>
+      <div class="card shadow-2xl bg-secondary">
+        <div class="card-body">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Client Name</span>
+            </label>
+            <input type="text" placeholder="ex. The Rock" class="input input-bordered" id="name" name="name"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Client Address</span>
+            </label>
+            <input type="text" placeholder="ex. 12" class="input input-bordered" id="address" name="address"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Client Phone Number</span>
+            </label>
+            <input type="tel" placeholder="ex. 407-222-1111" class="input input-bordered" id="phone" name="phone"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Client Email</span>
+            </label>
+            <input type="email" placeholder="ex. bob@gmail.com" class="input input-bordered" id="email" name="email"/>
+          </div>
+          <div class="form-control">
+            <label for="imgUpload" class="block mb-2 text-sm font-medium">Photo</label>
+            <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium hover:file:cursor-pointer hover:file:bg-base-100 hover:file:text-base-100" id="imageUpload" name="file">
+          </div>
+          <div class="form-control mt-6">
+            <button type="submit" class="btn btn-info" value="Upload">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>  
+</main>
 <%- include('partials/footer') -%>
