@@ -1,51 +1,51 @@
 <%- include('partials/headerWithMenu') -%>
 <main class="mb-auto">
   <div class="container grid grid-cols-3 gap-4 mx-auto">
-          <table class="col-span-3 table table-xs sm:table-sm md:table-md lg:table-md">
-            <thead>
-              <tr>
-                <th>Info</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for(i=0; i<posts.length; i++) {%>
-                <tr>
-                  <td>
-                    <div class="flex items-center space-x-3">
-                      <div class="mask mask-squircle">
-                          <a href="/client/<%= posts[i]._id%>" ><img class="object-cover w-24 h-24 hover:w-28 hover:h-28" src="<%= posts[i].image%>" alt="Client image" /></a>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div><%= posts[i].name.toUpperCase() %></div>
-                  </td>
-                  <td><a href="tel:<%= posts[i].phone %>"><%= posts[i].phone %></a></td>
-                  <th>
-                    <div class="avatar">
-                      <form action="/client/deletePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="col-3">
-                        <button class="btn fa fa-trash" type="submit"></button>
-                      </form>
-                    </div>
-                  </th>
-                </tr>
-              <%}%>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Info</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Delete</th>
-              </tr>
-            </tfoot> 
-          </table>
-  </div>
-  <div class="col-span-1 place-self-center">
-    <button class="btn btn-long" onclick="clientModal.showModal()">Add Appointment</button>
+    <table class="col-span-3 table table-xs sm:table-sm md:table-md lg:table-md">
+      <thead>
+        <tr>
+          <th>Info</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(i=0; i<posts.length; i++) {%>
+          <tr>
+            <td>
+              <div class="flex items-center space-x-3">
+                <div class="mask mask-squircle">
+                    <a href="/client/<%= posts[i]._id%>" ><img class="object-cover w-24 h-24 hover:w-28 hover:h-28" src="<%= posts[i].image%>" alt="Client image" /></a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div><%= posts[i].name.toUpperCase() %></div>
+            </td>
+            <td><a href="tel:<%= posts[i].phone %>"><%= posts[i].phone %></a></td>
+            <th>
+              <div class="avatar">
+                <form action="/client/deletePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="col-3">
+                  <button class="btn fa fa-trash" type="submit"></button>
+                </form>
+              </div>
+            </th>
+          </tr>
+        <%}%>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Info</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Delete</th>
+        </tr>
+      </tfoot> 
+    </table>
+    <div class="col-span-3 place-self-center">
+      <button class="btn btn-long" onclick="clientModal.showModal()">Add Appointment</button>
+    </div>
   </div>
   <dialog id="clientModal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
