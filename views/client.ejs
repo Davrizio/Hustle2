@@ -1,68 +1,5 @@
-<%- include('partials/header') -%>
-  <input type="checkbox" id="info-edit-modal" class="modal-toggle" />
-
-  <div class="modal">
-    <div class="modal-box relative bg-secondary">
-      <label for="info-edit-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <form action="/client/editPost/<%= post.id %>?_method=PUT" method="POST">
-          <div>
-              <div class="bg-secondary">
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Edit Name</span>
-                    </label>
-                    <input type="text" value="<%= post.name %>" class="input input-bordered" id="editName" name="editName"/>
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Edit Address</span>
-                    </label>
-                    <input type="text" value="<%= post.address %>" class="input input-bordered" id="editAddress" name="editAddress"/>
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Edit Phone Number</span>
-                    </label>
-                    <input type="text" value="<%= post.phone %>" class="input input-bordered" id="editPhone" name="editPhone"/>
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Edit Email</span>
-                    </label>
-                    <input type="email" value="<%= post.email %>" class="input input-bordered" id="editEmail" name="editEmail"/>
-                  </div>
-                  <div class="form-control mt-6">
-                    <button type="submit" class="btn" value="Upload">Save</button>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </form>
-    </div>
-  </div>
-
-  <input type="checkbox" id="image-edit-modal" class="modal-toggle" />
-
-  <div class="modal">
-    <div class="modal-box h-48 w-80 bg-secondary">
-      <label for="image-edit-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-      <div class="bg-secondary flex place-content-center mt-2">
-        <form action="/client/editPhoto/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
-              <div class="bg-secondary">
-                <div class="form-control">
-                  <label for="imgUpload" class="block mb-2 text-sm font-medium"> Change Photo</label>
-                  <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium id="imageUpload" name="file">
-                </div>
-                <div class="form-control mt-2 h-28 w-160">
-                  <button type="submit" class="btn" value="Upload">Save</button>
-                </div>
-              </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-<body>
+<%- include('partials/headerWithMenu') -%>
+<main>
   <div class="hero py-3">
     <div class="card w-96 shadow-xl bg-secondary">
       <div class="relative">
@@ -84,8 +21,8 @@
             <button class="btn btn-secondary fa fa-trash" type="submit"></button>
           </form>
           <%}%>
-          <div class="card-actions">
-            <label for="info-edit-modal" class="btn btn-secondary">Edit</label>
+          <div>
+            <button class="btn btn-secondary" onclick="editClientModal.showModal()">Edit</button>
           </div>
         </div>
       </div>
@@ -97,7 +34,6 @@
       <div class="card-body">
         <div class="overflow-x-auto w-full">
           <table class="table w-full">
-            <!-- head -->
             <thead>
               <tr>
                 <th>Date</th>
@@ -133,7 +69,6 @@
                 <%}%>
               <%}%>
             </tbody>
-            <!-- foot -->
             <tfoot>
               <tr>
                 <th>Date</th>
@@ -146,6 +81,66 @@
       </div>
     </div>
   </div>
-</body> 
+
+  <dialog id="editClientModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <form action="/client/editPost/<%= post.id %>?_method=PUT" method="POST">
+        <div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Edit Name</span>
+            </label>
+            <input type="text" value="<%= post.name %>" class="input input-bordered" id="editName" name="editName"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Edit Address</span>
+            </label>
+            <input type="text" value="<%= post.address %>" class="input input-bordered" id="editAddress" name="editAddress"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Edit Phone Number</span>
+            </label>
+            <input type="text" value="<%= post.phone %>" class="input input-bordered" id="editPhone" name="editPhone"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Edit Email</span>
+            </label>
+            <input type="email" value="<%= post.email %>" class="input input-bordered" id="editEmail" name="editEmail"/>
+          </div>
+          <div class="form-control mt-6">
+            <button type="submit" class="btn" value="Upload">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
+
+  <input type="checkbox" id="image-edit-modal" class="modal-toggle" />
+
+  <div class="modal">
+    <div class="modal-box h-48 w-80 bg-secondary">
+      <label for="image-edit-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+      <div class="bg-secondary flex place-content-center mt-2">
+        <form action="/client/editPhoto/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+              <div class="bg-secondary">
+                <div class="form-control">
+                  <label for="imgUpload" class="block mb-2 text-sm font-medium"> Change Photo</label>
+                  <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium id="imageUpload" name="file">
+                </div>
+                <div class="form-control mt-2 h-28 w-160">
+                  <button type="submit" class="btn" value="Upload">Save</button>
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main> 
 <%- include('partials/footer') -%>
   
