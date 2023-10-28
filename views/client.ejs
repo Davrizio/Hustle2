@@ -1,82 +1,85 @@
 <%- include('partials/headerWithMenu') -%>
 <main>
-  <div class="hero py-3">
-    <div class="card w-96 shadow-xl bg-secondary">
-      <div class="relative">
-        <figure class="px-10 pt-10">
-          <img src="<%= post.image%>" alt="Client Image" class="rounded-xl" />
-        </figure>
-        <div class="card-actions absolute bottom-0 left-0 ml-10">
-          <button class="btn btn-ghost btn-xs h-auto w-auto opacity-75" onclick="editClientPhotoModal.showModal()">Edit</button>
-        </div>
-      </div>
-      <div class="card-body items-center text-center">
-        <h2 class="card-title"><%= post.name %></h2>
-        <p><%= post.address %></p>
-        <a href="tel:<%= post.phone %>"><%= post.phone %></a>
-        <a href="mailto:<%= post.email %>"><%= post.email %></a>
-        <div class="flex space-x-4">
-          <%if(post.user == user.id){ %>
-          <form action="/client/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
-            <button class="btn btn-secondary fa fa-trash" type="submit"></button>
-          </form>
-          <%}%>
-          <div>
-            <button class="btn btn-secondary" onclick="editClientModal.showModal()">Edit</button>
+  <div class="container grid grid-cols-3 gap-4 justify-items-center mx-auto">
+    <div class="card col-span-1 w-full self-center bg-primary">
+      <div class="card-body" >
+        <div>
+          <figure class="px-2 pt-2">
+            <img src="<%= post.image%>" alt="Client Image" class="rounded-lg" />
+          </figure>
+          <div class="card-actions ">
+            <button class="btn btn-ghost btn-xs h-auto w-auto opacity-75" onclick="editClientPhotoModal.showModal()">Edit Photo</button>
           </div>
         </div>
-      </div>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"><%= post.name %></h2>
+          <p><%= post.address %></p>
+          <a href="tel:<%= post.phone %>"><%= post.phone %></a>
+          <a href="mailto:<%= post.email %>"><%= post.email %></a>
+          <div class="flex space-x-4">
+            <%if(post.user == user.id){ %>
+            <form action="/client/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="col-3">
+              <button class="btn btn-secondary fa fa-trash" type="submit"></button>
+            </form>
+            <%}%>
+            <div>
+              <button class="btn btn-secondary" onclick="editClientModal.showModal()">Edit</button>
+            </div>
+          </div>
+        </div>
     </div>
-  </div>
+    </div>
+  
 
-  <div class="hero min-h-fit py-3 mb-20">
-    <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-secondary">
-      <div class="card-body">
-        <div class="overflow-x-auto w-full">
-          <table class="table w-full">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Delete</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for(var i=0; i<cappt.length; i++) {%>
-                <%if(post.id == cappt[i].client){ %>
+    <div class="col-span-2">
+      <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-secondary">
+        <div class="card-body">
+          <div class="overflow-x-auto w-full">
+            <table class="table w-full">
+              <thead>
                 <tr>
-                  <td>
-                    <div>
-                      <div>
-                        <% const apptDate = new Date(cappt[i].date).toString() %>
-                        <h2><%= apptDate.substring(0,15) %> @ <%= apptDate.substring(16,21) %></h2>
-                      </div>
-                    </div>
-                  </td>
-                  <th>
-                    <div class="avatar">
-                      <form action="/appointment/deletePostFromClient/<%= cappt[i]._id %>?_method=DELETE" method="POST">
-                        <button class="btn fa fa-trash" type="submit"></button>
-                      </form>
-                    </div>
-                  </th>
-                  <th>
-                    <button class="btn btn-info">
-                      <div><a href="/appointment/<%= cappt[i]._id%>" >Workout</a></div>
-                    </button>
-                  </th>
+                  <th>Date</th>
+                  <th>Delete</th>
+                  <th></th>
                 </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i<cappt.length; i++) {%>
+                  <%if(post.id == cappt[i].client){ %>
+                  <tr>
+                    <td>
+                      <div>
+                        <div>
+                          <% const apptDate = new Date(cappt[i].date).toString() %>
+                          <h2><%= apptDate.substring(0,15) %> @ <%= apptDate.substring(16,21) %></h2>
+                        </div>
+                      </div>
+                    </td>
+                    <th>
+                      <div class="avatar">
+                        <form action="/appointment/deletePostFromClient/<%= cappt[i]._id %>?_method=DELETE" method="POST">
+                          <button class="btn fa fa-trash" type="submit"></button>
+                        </form>
+                      </div>
+                    </th>
+                    <th>
+                      <button class="btn btn-info">
+                        <div><a href="/appointment/<%= cappt[i]._id%>" >Workout</a></div>
+                      </button>
+                    </th>
+                  </tr>
+                  <%}%>
                 <%}%>
-              <%}%>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Date</th>
-                <th>Delete</th>
-                <th></th>
-              </tr>
-            </tfoot> 
-          </table>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Date</th>
+                  <th>Delete</th>
+                  <th></th>
+                </tr>
+              </tfoot> 
+            </table>
+          </div>
         </div>
       </div>
     </div>
