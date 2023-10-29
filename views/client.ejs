@@ -44,27 +44,32 @@
                 </tr>
               </thead>
               <tbody>
-                <% for(var i=0; i<cappt.length; i++) {%>
-                  <%if(post.id == cappt[i].client){ %>
+                <% const clientAppts = [] %>
+                <% for(i=0; i<cappt.length; i++) {%>
+                  <% clientAppts.push(cappt[i]) %>
+                <% } %>
+                <% let appointmentsSorted = clientAppts.sort((a,b) => DateTime.fromISO(b.date).toMillis() - DateTime.fromISO(a.date).toMillis()) %>
+                <% for(var i=0; i<clientAppts.length; i++) {%>
+                  <%if(post.id == clientAppts[i].client){ %>
                   <tr>
                     <td>
                       <div>
                         <div>
-                          <% const apptDate = new Date(cappt[i].date).toString() %>
-                          <h2><%= apptDate.substring(0,15) %> @ <%= apptDate.substring(16,21) %></h2>
+                          <% const date = DateTime.fromISO(clientAppts[i].date) %>
+                          <h2><%= date.toLocaleString(DateTime.DATETIME_MED) %></h2>
                         </div>
                       </div>
                     </td>
                     <th>
                       <div class="avatar">
-                        <form action="/appointment/deletePostFromClient/<%= cappt[i]._id %>?_method=DELETE" method="POST">
+                        <form action="/appointment/deletePostFromClient/<%= clientAppts[i]._id %>?_method=DELETE" method="POST">
                           <button class="btn fa fa-trash" type="submit"></button>
                         </form>
                       </div>
                     </th>
                     <th>
                       <button class="btn btn-info">
-                        <div><a href="/appointment/<%= cappt[i]._id%>" >Workout</a></div>
+                        <div><a href="/appointment/<%= clientAppts[i]._id%>" >Workout</a></div>
                       </button>
                     </th>
                   </tr>
