@@ -1,7 +1,7 @@
 <%- include('partials/headerWithMenu') -%>
 <main>
-  <div class="container grid grid-cols-3 gap-4 justify-items-center mx-auto">
-    <div class="col-span-1 w-full self-center">
+  <div class="container grid grid-cols-1 grid-rows-2 gap-4 justify-items-center mx-auto sm:grid-cols-1 sm:grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+    <div class="col-span-1 self-center mx-4 sm:mx-4 lg:w-full">
       <form action="/exercise/createPost" enctype="multipart/form-data" method="POST">
         <div class="card w-full bg-secondary">
           <div class="card-body">
@@ -25,10 +25,10 @@
       </form>
     </div>
     <div class="col-span-2">
-      <div class="card flex-shrink-0 w-fit max-w-auto bg-secondary">
+      <div class="card flex-shrink-0 w-fit max-w-auto bg-secondary mx-4">
         <div class="card-body">
-          <div class="overflow-x-auto w-full">
-            <table class="table w-full">
+          <div class="overflow-x-auto">
+            <table class="table table-xs sm:table-sm md:table-md lg:table-md">
               <thead>
                 <tr>
                   <th>Exercise</th>
@@ -51,8 +51,8 @@
                         <form action="/exercise/editPost/<%= posts[i].id %>?_method=PUT" method="POST">
                           <div class="form-control">
                             <div class="input-group">
-                              <input type="text" placeholder="Change instructions" class="input input-bordered" id="edit" name="edit"/>
-                              <button type="submit" class="btn btn-square" value="Upload">Save</button>
+                              <input type="text" placeholder="Change instructions" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md mb-1" id="edit" name="edit"/>
+                              <button type="submit" class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md" value="Upload">Save</button>
                             </div>
                           </div>
                         </form>
