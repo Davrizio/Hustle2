@@ -39,7 +39,7 @@
                 <form action="/appointment/editPost/<%= appointmentsSorted[i].id %>?_method=PUT" method="POST">
                    <div class="form-control">
                      <div class="input-group">
-                      <input type="datetime-local" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md" id="editDate" name="editDate"/>
+                      <input type="datetime-local" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md mb-1" id="editDate" name="editDate"/>
                       <input type="hidden" id="editClient"  name="editClient" value="<%= posts[i].client %>"></input>
                       <button type="submit" class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md" value="Upload">Save</button>
                      </div> 
