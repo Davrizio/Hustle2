@@ -1,14 +1,6 @@
 <%- include('partials/headerWithMenu') -%>
-
 <section class="flex flex-col place-items-center space-y-4">
-  <div class="place-self-start mx-5">
-    <%if(apptPost.user == user.id){ %>
-    <form action="/post/deletePost/<%= apptPost._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit"> Delete Appointment</button>
-    </form>
-    <%}%>
-  </div>
-
+  
   <div class="font-5xl font-bold">Create Workout For:
     <% const clientls = clientList; %>
     <% const clientlsResult = clientls.find(({id}) => id == apptPost.client); %>
@@ -18,20 +10,13 @@
     <%= clientlsResult.name.toUpperCase() %>
     <%}%>  
   </div>
-
+  <% const apptDate = DateTime.fromISO(apptPost.date) %>
   <div class="font-4xl font-bold h-auto">
-    <% const apptDate = new Date(apptPost.date).toString() %>
-    <h2>Appointment Date: <%= apptDate.substring(0,15) %></h2>
+    <h2><%= apptDate.toLocaleString(DateTime.DATE_FULL) %></h2>
   </div>
-
   <div class="font-4xl font-bold h-auto">
-    <% if(apptDate.substring(15,18) > 12){ %>
-    <%= `Time: ${apptDate.substring(15,18) - 12}${apptDate.substring(18,21)} pm` %>
-    <%} else{ %>
-    <%= `Time: ${apptDate.substring(15,18)} am` %>
-    <%}%>
+    <h2><%= apptDate.toLocaleString(DateTime.TIME_SIMPLE) %></h2>
   </div>
-
   <div>
     <form action="/clientWorkout/createPost" method="POST">
       <div class="btn-group">
@@ -156,6 +141,13 @@
       </div>
   </div>
   </form>
+  </div>
+  <div class="place-self-center mx-5">
+    <%if(apptPost.user == user.id){ %>
+    <form action="/post/deletePost/<%= apptPost._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit"> Delete Appointment</button>
+    </form>
+    <%}%>
   </div>
 </section>
 <%- include('partials/footer') -%>
