@@ -11105,6 +11105,26 @@ details.collapse summary::-webkit-details-marker {
     line-height: 2;
   }
 
+  .md\:input-sm, input.md\:input-sm {
+    height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 2rem;
+  }
+
+  .md\:table-sm :not(thead):not(tfoot) tr {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:table-sm :where(th, td) {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   .md\:table-md :not(thead):not(tfoot) tr {
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -11147,6 +11167,18 @@ details.collapse summary::-webkit-details-marker {
     font-size: 0.875rem;
     line-height: 1.25rem;
     line-height: 2;
+  }
+
+  .lg\:table-sm :not(thead):not(tfoot) tr {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .lg\:table-sm :where(th, td) {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .lg\:table-md :not(thead):not(tfoot) tr {

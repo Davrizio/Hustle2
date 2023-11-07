@@ -9,7 +9,7 @@
               <label class="label">
                 <span class="label-text">Add Exercise</span>
               </label>
-              <input type="text" placeholder="ex. pullups" class="input input-bordered" id="title" name="title"/>
+              <input type="text" placeholder="ex. Pullups" class="input input-bordered" id="title" name="title"/>
             </div>
             <div class="form-control">
               <label class="label">
@@ -28,7 +28,7 @@
       <div class="card flex-shrink-0 w-fit max-w-auto bg-secondary mx-4">
         <div class="card-body">
           <div class="overflow-x-auto">
-            <table class="table table-xs sm:table-sm md:table-md lg:table-md">
+            <table class="table table-xs lg:table-sm">
               <thead>
                 <tr>
                   <th>Exercise</th>
@@ -51,7 +51,7 @@
                         <form action="/exercise/editPost/<%= posts[i].id %>?_method=PUT" method="POST">
                           <div class="form-control">
                             <div class="input-group">
-                              <input type="text" placeholder="Change instructions" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md mb-1" id="edit" name="edit"/>
+                              <input type="text" placeholder="Edit" class="input input-bordered input-xs md:input-sm lg:input-md mb-1" id="edit" name="edit"/>
                               <button type="submit" class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md" value="Upload">Save</button>
                             </div>
                           </div>
