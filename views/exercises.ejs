@@ -7,13 +7,13 @@
           <div class="card-body">
             <div class="form-control">
               <label class="label">
-                <span class="label-text">Add Exercise</span>
+                <span class="label-text text-secondary-content">Add Exercise</span>
               </label>
               <input type="text" placeholder="ex. Pullups" class="input input-bordered" id="title" name="title"/>
             </div>
             <div class="form-control">
               <label class="label">
-                <span class="label-text">Add Instructions/Equipment Needed</span>
+                <span class="label-text text-secondary-content">Add Instructions/Equipment Needed</span>
               </label>
               <input type="text" placeholder="ex. Dumbbells" class="input input-bordered" id="caption" name="caption"/>
             </div>
@@ -31,19 +31,19 @@
             <table class="table table-xs lg:table-sm">
               <thead>
                 <tr>
-                  <th>Exercise</th>
-                  <th>Instructions/Equipment</th>
-                  <th>Edit Instructions/Equipment</th>
-                  <th>Delete</th>
+                  <th class="text-secondary-content">Exercise</th>
+                  <th class="text-secondary-content">Instructions/Equipment</th>
+                  <th class="text-secondary-content">Edit Instructions/Equipment</th>
+                  <th class="text-secondary-content">Delete</th>
                 </tr>
               </thead>
               <tbody>
                 <% for(i=0; i<posts.length; i++) {%>
                   <tr>
-                    <td>
+                    <td class="text-secondary-content">
                       <%= posts[i].title.toUpperCase() %>
                     </td>
-                    <td>
+                    <td class="text-secondary-content">
                       <div> <%= posts[i].caption.toUpperCase() %> </div>
                     </td>
                     <th>
@@ -70,10 +70,10 @@
               </tbody>
                 <tfoot>
                   <tr>
-                    <th>Exercise</th>
-                    <th>Instructions/Equipment</th>
-                    <th>Edit Instructions/Equipment</th>
-                    <th>Delete</th>
+                    <th class="text-secondary-content">Exercise</th>
+                    <th class="text-secondary-content">Instructions/Equipment</th>
+                    <th class="text-secondary-content">Edit Instructions/Equipment</th>
+                    <th class="text-secondary-content">Delete</th>
                   </tr>
                 </tfoot> 
             </table>
