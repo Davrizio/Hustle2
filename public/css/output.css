@@ -8807,6 +8807,10 @@ details.collapse summary::-webkit-details-marker {
   height: auto;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -8855,6 +8859,10 @@ details.collapse summary::-webkit-details-marker {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .min-w-full {
