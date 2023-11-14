@@ -1,13 +1,13 @@
 <%- include('partials/headerWithMenu') -%>
 <main class="mb-auto">
   <div class="container grid grid-cols-3 gap-4 mx-auto">
-    <table class="col-span-3 table table-xs sm:table-sm md:table-md lg:table-md">
+    <table class="col-span-3 table table-xs sm:table-sm md:table-md lg:table-md bg-base-300">
       <thead>
         <tr>
-          <th>Info</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Delete</th>
+          <th class="text-base-content">Info</th>
+          <th class="text-base-content">Name</th>
+          <th class="text-base-content">Phone</th>
+          <th class="text-base-content">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -18,7 +18,7 @@
                 <div class="mask mask-squircle">
                   <a href="/client/<%= posts[i]._id%>" ><img class="object-cover w-24 h-24 hover:w-28 hover:h-28" src="<%= posts[i].image%>" alt="Client image" /></a>
                 </div>
-                <button class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md">
+                <button class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md bg-primary">
                   <div>
                     <a href="/client/<%= posts[i]._id%>" >More Info</a>
                   </div>
@@ -32,7 +32,7 @@
             <th>
               <div class="avatar">
                 <form action="/client/deletePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="col-3">
-                  <button class="btn fa fa-trash" type="submit"></button>
+                  <button class="btn fa fa-trash bg-primary" type="submit"></button>
                 </form>
               </div>
             </th>
@@ -41,52 +41,52 @@
       </tbody>
       <tfoot>
         <tr>
-          <th>Info</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Delete</th>
+          <th class="text-base-content">Info</th>
+          <th class="text-base-content">Name</th>
+          <th class="text-base-content">Phone</th>
+          <th class="text-base-content">Delete</th>
         </tr>
       </tfoot> 
     </table>
     <div class="col-span-3 place-self-center">
-      <button class="btn btn-long" onclick="clientModal.showModal()">Add Appointment</button>
+      <button class="btn btn-long bg-primary" onclick="clientModal.showModal()">Add Client</button>
     </div>
   </div>
   <dialog id="clientModal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
+    <div class="modal-box bg-primary">
       <form action="/client/createPostClient" enctype="multipart/form-data" method="POST" class="col-span-2 row-span-4">
           <div class="card">
             <div class="card-body">
               <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Client Name</span>
+                  <span class="label-text text-primary-content">Client Name</span>
                 </label>
                 <input type="text" placeholder="ex. The Rock" class="input input-bordered" id="name" name="name"/>
               </div>
               <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Client Address</span>
+                  <span class="label-text text-primary-content">Client Address</span>
                 </label>
                 <input type="text" placeholder="ex. 12" class="input input-bordered" id="address" name="address"/>
               </div>
               <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Client Phone Number</span>
+                  <span class="label-text text-primary-content">Client Phone Number</span>
                 </label>
                 <input type="tel" placeholder="ex. 407-222-1111" class="input input-bordered" id="phone" name="phone"/>
               </div>
               <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Client Email</span>
+                  <span class="label-text text-primary-content">Client Email</span>
                 </label>
                 <input type="email" placeholder="ex. bob@gmail.com" class="input input-bordered" id="email" name="email"/>
               </div>
               <div class="form-control">
-                <label for="imgUpload" class="block mb-2 text-sm font-medium">Photo</label>
-                <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium hover:file:cursor-pointer hover:file:bg-base-100 hover:file:text-base-100" id="imageUpload" name="file">
+                <label for="imgUpload" class="block mb-2 text-sm text-primary-content">Photo</label>
+                <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium hover:file:cursor-pointer hover:file:bg-secondary hover:file:text-secondary-content" id="imageUpload" name="file">
               </div>
               <div class="form-control mt-6">
-                <button type="submit" class="btn btn-info" value="Upload">Save</button>
+                <button type="submit" class="btn btn-primary-content hover:bg-secondary" value="Upload">Save</button>
               </div>
             </div>
           </div>
