@@ -18,7 +18,7 @@
                 <div class="mask mask-squircle w-12 h-12">
                   <a href="/client/<%= posts[i]._id%>" ><img class="object-cover w-24 h-24 hover:w-28 hover:h-28" src="<%= posts[i].image%>" alt="Client image" /></a>
                 </div>
-                <button class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md bg-primary">
+                <button class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md bg-primary hover:bg-secondary">
                   <div>
                     <a href="/client/<%= posts[i]._id%>" >More Info</a>
                   </div>
@@ -32,7 +32,7 @@
             <th>
               <div class="avatar">
                 <form action="/client/deletePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="col-3">
-                  <button class="btn fa fa-trash bg-primary" type="submit"></button>
+                  <button class="btn fa fa-trash bg-primary hover:bg-secondary" type="submit"></button>
                 </form>
               </div>
             </th>
@@ -49,7 +49,7 @@
       </tfoot> 
     </table>
     <div class="col-span-3 place-self-center">
-      <button class="btn btn-long bg-primary" onclick="clientModal.showModal()">Add Client</button>
+      <button class="btn btn-long bg-primary hover:bg-secondary" onclick="clientModal.showModal()">Add Client</button>
     </div>
   </div>
   <dialog id="clientModal" class="modal modal-bottom sm:modal-middle">
