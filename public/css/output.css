@@ -8629,6 +8629,11 @@ details.collapse summary::-webkit-details-marker {
   margin-right: 0.5rem;
 }
 
+.mx-24 {
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -10795,15 +10800,57 @@ details.collapse summary::-webkit-details-marker {
     font-size: 0.875rem;
   }
 
+  .md\:btn-md {
+    height: 3rem;
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .md\:btn-lg {
+    height: 4rem;
+    min-height: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 1.125rem;
+  }
+
   .btn-square:where(.md\:btn-sm) {
     height: 2rem;
     width: 2rem;
     padding: 0px;
   }
 
+  .btn-square:where(.md\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    padding: 0px;
+  }
+
+  .btn-square:where(.md\:btn-lg) {
+    height: 4rem;
+    width: 4rem;
+    padding: 0px;
+  }
+
   .btn-circle:where(.md\:btn-sm) {
     height: 2rem;
     width: 2rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.md\:btn-md) {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 9999px;
+    padding: 0px;
+  }
+
+  .btn-circle:where(.md\:btn-lg) {
+    height: 4rem;
+    width: 4rem;
     border-radius: 9999px;
     padding: 0px;
   }
@@ -11140,6 +11187,11 @@ details.collapse summary::-webkit-details-marker {
   .md\:mx-12 {
     margin-left: 3rem;
     margin-right: 3rem;
+  }
+
+  .md\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
   }
 
   .md\:ml-12 {

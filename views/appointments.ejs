@@ -1,13 +1,13 @@
 <%- include('partials/headerWithMenu') -%>
 <main class="mb-auto">
-  <div class="container grid grid-cols-3 gap-4 mx-auto">
+  <div class="grid grid-cols-3 gap-4 mx-4 md:mx-24">
     <table class="col-span-3 table table-xs sm:table-sm md:table-md lg:table-md bg-base-300">
       <thead>
          <tr>
           <th class="text-base-content">Date</th>
           <th class="text-base-content">Client</th>
           <th class="text-base-content">Edit Date</th>
-          <th class="text-base-content">Delete</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -39,28 +39,28 @@
                 <form action="/appointment/editPost/<%= appointmentsSorted[i].id %>?_method=PUT" method="POST">
                    <div class="form-control">
                      <div class="input-group">
-                      <input type="datetime-local" class="input input-bordered input-xs sm:input-sm md:input-md lg:input-md mb-1" id="editDate" name="editDate"/>
+                      <input type="datetime-local" class="input input-bordered input-xs md:input-md mb-1" id="editDate" name="editDate"/>
                       <input type="hidden" id="editClient"  name="editClient" value="<%= posts[i].client %>"></input>
-                      <button type="submit" class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md bg-primary hover:bg-secondary" value="Upload">Save</button>
+                      <button type="submit" class="btn btn-xs md:btn-md bg-primary hover:bg-secondary" value="Upload">Save</button>
                      </div> 
                    </div> 
                  </form>
                </div>
             </th>
-             <th>
-              <div class="avatar">
-                 <form action="/appointment/deletePost/<%= appointmentsSorted[i]._id %>?_method=DELETE" method="POST">
-                  <button class="btn fa fa-trash bg-primary hover:bg-secondary" type="submit"></button>
-                 </form>
-               </div>
-             </th>
-             <th>
-              <button class="btn btn-xs sm:btn-xs md:btn-sm lg:btn-md bg-primary hover:bg-secondary">
-                 <div>
+            <th>
+              <button class="btn btn-xs md:btn-md bg-primary hover:bg-secondary">
+                <div>
                   <a href="/appointment/<%= appointmentsSorted[i]._id%>" >Workout</a>
-                 </div>
-               </button>
-             </th>
+                </div>
+              </button>
+            </th>
+            <th class="flex justify-end">
+              <div>
+                <form action="/appointment/deletePost/<%= appointmentsSorted[i]._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-ghost fa fa-trash" type="submit"></button>
+                </form>
+              </div>
+            </th>
            </tr>
          <%}%>
       </tbody>
@@ -69,7 +69,7 @@
           <th class="text-base-content">Date</th>
           <th class="text-base-content">Client</th>
           <th class="text-base-content">Edit Date</th>
-          <th class="text-base-content">Delete</th>
+          <th></th>
           <th></th>
          </tr>
       </tfoot> 
