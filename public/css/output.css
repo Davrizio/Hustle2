@@ -9775,6 +9775,10 @@ details.collapse summary::-webkit-details-marker {
   border-radius: 0.375rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .rounded-b {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -11194,6 +11198,11 @@ details.collapse summary::-webkit-details-marker {
     margin-right: 6rem;
   }
 
+  .md\:mx-6 {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
   .md\:ml-12 {
     margin-left: 3rem;
   }
@@ -11204,6 +11213,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:w-full {
     width: 100%;
+  }
+
+  .md\:w-24 {
+    width: 6rem;
   }
 
   .md\:grid-cols-3 {
