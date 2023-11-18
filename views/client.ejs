@@ -1,6 +1,6 @@
 <%- include('partials/headerWithMenu') -%>
 <main>
-  <div class="container grid grid-cols-1 grid-rows-2 gap-4 justify-items-center mx-auto sm:grid-cols-1 sm:grid-rows-2 md:grid-cols-3 md:grid-rows-1">
+  <div class="grid grid-cols-1 grid-rows-2 gap-4 justify-items-center mx-auto md:grid-cols-3 md:grid-rows-1">
     <div class="card col-span-1 w-80 md:ml-12 md:w-full self-center bg-primary">
       <div class="card-body" >
         <div class="px-1 pt-1">
@@ -11,7 +11,7 @@
             <button class="btn btn-ghost btn-xs h-auto w-auto opacity-75" onclick="editClientPhotoModal.showModal()">Edit Photo</button>
           </div>
         </div>
-        <div class="card-body items-center text-center">
+        <div class="card-body items-center text-center text-primary-content">
           <h2 class="card-title"><%= post.name %></h2>
           <p><%= post.address %></p>
           <a href="tel:<%= post.phone %>"><%= post.phone %></a>
@@ -31,14 +31,14 @@
     </div>
   
     <div class="col-span-2">
-      <div class="card flex-shrink-0 w-fit max-w-auto shadow-2xl bg-secondary">
+      <div class="card flex-shrink-0 w-fit max-w-auto bg-primary">
         <div class="card-body">
           <div class="overflow-x-auto w-full">
             <table class="table w-full">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Delete</th>
+                  <th class="text-primary-content">Upcoming Appointments</th>
+                  <th></th>
                   <th></th>
                 </tr>
               </thead>
@@ -55,32 +55,27 @@
                       <div>
                         <div>
                           <% const date = DateTime.fromISO(clientAppts[i].date) %>
-                          <h2><%= date.toLocaleString(DateTime.DATETIME_MED) %></h2>
+                          <h2 class="text-primary-content"><%= date.toLocaleString(DateTime.DATETIME_MED) %></h2>
                         </div>
                       </div>
                     </td>
                     <th>
-                      <div class="avatar">
-                        <form action="/appointment/deletePostFromClient/<%= clientAppts[i]._id %>?_method=DELETE" method="POST">
-                          <button class="btn fa fa-trash" type="submit"></button>
-                        </form>
-                      </div>
-                    </th>
-                    <th>
-                      <button class="btn btn-info">
+                      <button class="btn bg-secondary hover:bg-accent">
                         <div><a href="/appointment/<%= clientAppts[i]._id%>" >Workout</a></div>
                       </button>
+                    </th>
+                    <th>
+                      <div class="avatar">
+                        <form action="/appointment/deletePostFromClient/<%= clientAppts[i]._id %>?_method=DELETE" method="POST">
+                          <button class="btn btn-ghost fa fa-trash" type="submit"></button>
+                        </form>
+                      </div>
                     </th>
                   </tr>
                   <%}%>
                 <%}%>
               </tbody>
               <tfoot>
-                <tr>
-                  <th>Date</th>
-                  <th>Delete</th>
-                  <th></th>
-                </tr>
               </tfoot> 
             </table>
           </div>
@@ -90,35 +85,35 @@
   </div>
 
   <dialog id="editClientModal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
+    <div class="modal-box bg-primary">
       <form action="/client/editPost/<%= post.id %>?_method=PUT" method="POST">
         <div>
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Edit Name</span>
+              <span class="label-text text-primary-content">Edit Name</span>
             </label>
             <input type="text" value="<%= post.name %>" class="input input-bordered" id="editName" name="editName"/>
           </div>
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Edit Address</span>
+              <span class="label-text text-primary-content">Edit Address</span>
             </label>
             <input type="text" value="<%= post.address %>" class="input input-bordered" id="editAddress" name="editAddress"/>
           </div>
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Edit Phone Number</span>
+              <span class="label-text text-primary-content">Edit Phone Number</span>
             </label>
             <input type="text" value="<%= post.phone %>" class="input input-bordered" id="editPhone" name="editPhone"/>
           </div>
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Edit Email</span>
+              <span class="label-text text-primary-content">Edit Email</span>
             </label>
             <input type="email" value="<%= post.email %>" class="input input-bordered" id="editEmail" name="editEmail"/>
           </div>
           <div class="form-control mt-6">
-            <button type="submit" class="btn" value="Upload">Save</button>
+            <button type="submit" class="btn bg-secondary hover:bg-accent" value="Upload">Save</button>
           </div>
         </div>
       </form>
@@ -129,16 +124,16 @@
   </dialog>
 
   <dialog id="editClientPhotoModal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box flex-auto">
-        <form action="/client/editPhoto/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">          
-            <div class="form-control">
-              <label for="imgUpload" class="label"> Change Photo</label>
-              <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium id="imageUpload" name="file">
-            </div>
-            <div class="w-full flex justify-end">
-              <button type="submit" class="btn" value="Upload">Save</button>
-            </div>
-        </form>
+    <div class="modal-box flex-auto bg-primary">
+      <form action="/client/editPhoto/<%= post.id %>?_method=PUT" enctype="multipart/form-data" method="POST">          
+        <div class="form-control">
+          <label for="imgUpload" class="label text-primary-content"> Change Photo</label>
+          <input type="file" class="text-sm file:mr-5 file:py-2 file:px-6 file:border-0 file:rounded-lg file:text-sm file:font-medium id="imageUpload" name="file">
+        </div>
+        <div class="w-full flex justify-end">
+          <button type="submit" class="btn bg-secondary hover:bg-accent" value="Upload">Save</button>
+        </div>
+      </form>
     </div>
     <form method="dialog" class="modal-backdrop">
       <button>close</button>

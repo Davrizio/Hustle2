@@ -1,6 +1,6 @@
 <%- include('partials/headerWithMenu') -%>
 <section class="grid grid-col-1 grid-row-6 place-items-center space-y-8">
-  <div class="font-5xl font-bold">Workout For:
+  <div class="font-5xl font-bold text-primary-content">Workout For:
     <% const clientls = clientList; %>
     <% const clientlsResult = clientls.find(({id}) => id == apptPost.client); %>
     <% if(clientlsResult == undefined){ %>
@@ -9,7 +9,7 @@
     <%= clientlsResult.name.toUpperCase() %>
     <%}%>  
   </div>
-  <div class="font-4xl font-bold">
+  <div class="font-4xl font-bold text-primary-content">
     <% const apptDate = DateTime.fromISO(apptPost.date) %>
     <h2><%= apptDate.toLocaleString(DateTime.DATE_FULL) %> <%= apptDate.toLocaleString(DateTime.TIME_SIMPLE) %></h2>
   </div>
