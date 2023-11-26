@@ -4,6 +4,8 @@ const ClientList = require("../models/clients");
 const Exercise = require("../models/Post");
 const Comment = require("../models/Comment");
 const clientPost = require("../models/clientEx");
+const UserPrefs = require("../models/UserPrefs");
+
 
 module.exports = {
    
@@ -11,7 +13,8 @@ module.exports = {
     try {
       const posts = await Appts.find({ user: req.user.id });
       const clientList = await ClientList.find({ user: req.user.id });
-      res.render("appointments.ejs", { posts: posts, user: req.user, clientList: clientList});
+      const userPrefs = await UserPrefs.find();
+      res.render("appointments.ejs", { posts: posts, user: req.user, clientList: clientList, userPrefs: userPrefs});
     } catch (err) {
       console.log(err);
     }

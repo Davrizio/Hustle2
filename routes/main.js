@@ -9,6 +9,7 @@ const clientWorkoutController = require("../controllers/clientWorkout");
 const apptsController = require("../controllers/appts");
 const passwordRoutes = require("../routes/passwordReset");
 const passwordController = require("../controllers/passwordReset");
+const themeController = require("../controllers/themeController");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.get("/", homeController.getIndex);
@@ -27,5 +28,8 @@ router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
+router.post("/theme/dark", themeController.postThemeChangeDark);
+router.post("/theme/light", themeController.postThemeChangeLight);
+
 
 module.exports = router;
