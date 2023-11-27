@@ -16,21 +16,9 @@ const commentRoutes = require("./routes/comments");
 const clientWorkoutRoutes = require("./routes/clientWorkout");
 const passwordResetRoutes = require("./routes/passwordReset");
 const { DateTime } = require("luxon");
-const storage = require('node-persist');
 
 //Use Luxon to parse dates
 app.locals.DateTime = DateTime
-
-async function setupStore() { 
-  await storage.init({
-    dir: 'store',
-    expiredInterval: 7200000,
-  });
-}
-setupStore()
-
-app.locals.storage = storage
-
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });

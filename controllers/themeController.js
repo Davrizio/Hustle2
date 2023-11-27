@@ -5,9 +5,10 @@ module.exports = {
 
   postThemeChangeDark: async (req, res) => {
     try {
-      await UserPrefs.findOneAndUpdate(
+      await UserPrefs.create(
         {
           dark: "business",
+          user: req.user.id
         }
       );
       console.log("Theme Updated!");
@@ -22,6 +23,7 @@ module.exports = {
       await UserPrefs.findOneAndUpdate(
         {
           dark: "nord",
+          user: req.user.id
         }
       );
       console.log("Theme Updated!");

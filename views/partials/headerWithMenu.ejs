@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="<%= userPrefs[0].dark%>">
+<html lang="en" data-theme="<%= userPrefs%>">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -39,8 +39,8 @@
           <div></div>
         </div>
         <div class="navbar-end">
-            <% if (userPrefs[0].dark  === "business") { %>
-              <% console.log(userPrefs[0].dark, 'if') %>
+            <% if (userPrefs  === "business") { %>
+              <% console.log(userPrefs, 'if') %>
               <form action="/theme/light" method="POST">
                 <label class="swap swap-rotate">
                     <input type="checkbox" class="theme-controller" onchange="this.form.submit()" value=""/>
@@ -49,7 +49,7 @@
                 </label>
                 </form>
             <% }else { %>
-              <% console.log(userPrefs[0].dark, 'else') %>
+              <% console.log(userPrefs, 'else') %>
               <form action="/theme/dark" method="POST">
                 <label class="swap swap-rotate">
                   <input type="checkbox" class="theme-controller" onchange="this.form.submit()" value=""/>
