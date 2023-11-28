@@ -5,11 +5,13 @@ module.exports = {
 
   postThemeChangeDark: async (req, res) => {
     try {
-      await UserPrefs.create(
+      await UserPrefs.updateOne(
+        { user: req.user.id },
         {
           dark: "business",
           user: req.user.id
-        }
+        },
+        {upsert: true}
       );
       console.log("Theme Updated!");
       res.redirect("back");
@@ -20,11 +22,13 @@ module.exports = {
 
   postThemeChangeLight: async (req, res) => {
     try {
-      await UserPrefs.findOneAndUpdate(
+      await UserPrefs.updateOne(
+        { user: req.user.id },
         {
           dark: "nord",
           user: req.user.id
-        }
+        },
+        {upsert: true}
       );
       console.log("Theme Updated!");
       res.redirect("back");

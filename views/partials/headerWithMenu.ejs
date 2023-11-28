@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="<%= userPrefs%>">
+<% let theme = "nord" %>
+<% if (userPrefs.length === 0) { %>
+  <% console.log("userPrefs not set") %>
+<% } else { %>
+  <% theme = userPrefs[0].dark %>
+<% } %>
+<html lang="en" data-theme="<%= theme %>">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -39,8 +45,7 @@
           <div></div>
         </div>
         <div class="navbar-end">
-            <% if (userPrefs  === "business") { %>
-              <% console.log(userPrefs, 'if') %>
+            <% if (theme  === "business") { %>
               <form action="/theme/light" method="POST">
                 <label class="swap swap-rotate">
                     <input type="checkbox" class="theme-controller" onchange="this.form.submit()" value=""/>
@@ -49,7 +54,6 @@
                 </label>
                 </form>
             <% }else { %>
-              <% console.log(userPrefs, 'else') %>
               <form action="/theme/dark" method="POST">
                 <label class="swap swap-rotate">
                   <input type="checkbox" class="theme-controller" onchange="this.form.submit()" value=""/>
