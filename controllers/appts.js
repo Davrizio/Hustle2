@@ -28,7 +28,8 @@ module.exports = {
       const cworkout = await clientPost.find({ user: req.user.id });
       const clientList = await ClientList.find({ user: req.user.id });
       const comments = await Comment.find({ post: req.params.id});
-      res.render("appointment.ejs", { apptPost: apptPost, user: req.user, comments: comments, elist: elist, cworkout: cworkout, post: post, clientList: clientList });
+      const userPrefs = await UserPrefs.find({ user: req.user.id });
+      res.render("appointment.ejs", { apptPost: apptPost, user: req.user, comments: comments, elist: elist, cworkout: cworkout, post: post, clientList: clientList, userPrefs: userPrefs });
     } catch (err) {
       console.log(err);
     }
