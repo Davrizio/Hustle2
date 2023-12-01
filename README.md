@@ -18,7 +18,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://www.loom.com/share/ed88a5762aef442a9ccd2d83cf9c93dc)
+[![screenshot](https://cdn.loom.com/sessions/thumbnails/ed88a5762aef442a9ccd2d83cf9c93dc-1706628247266-with-play.gif)](https://www.loom.com/share/ed88a5762aef442a9ccd2d83cf9c93dc)
 
 ## Key Features
 
