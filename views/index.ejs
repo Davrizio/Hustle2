@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" data-theme="nord">
 
 <head>
   <meta charset="UTF-8" />
@@ -25,7 +25,6 @@
       </div>
     </div>
   </div>
-
   <dialog id="loginModal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box bg-primary">
       <div class="relative p-4 w-full max-w-md max-h-full">   
@@ -36,7 +35,7 @@
           <form class="space-y-4" action="/login" method="POST">
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-primary-content">Your email</label>
-              <input type="email" name="email" id="email" class=" border text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600" required>
+              <input type="email" name="email" id="email" class=" border text-sm rounded-lg block w-full p-2.5" required>
             </div>
             <div>
               <label for="password" class="block mb-2 text-sm font-medium text-primary-content">Your password</label>
@@ -45,7 +44,7 @@
             <div class="flex justify-between">
               <a href="/password-reset" class="text-sm text-primary-content">Lost Password?</a>
             </div>
-            <button type="submit" class="w-full px-5 py-2.5 bg-secondary hover:bg-accent">Login to your account</button>
+            <button type="submit" class="w-full px-5 py-2.5 text-secondary-content bg-secondary hover:bg-accent">Login to your account</button>
             <div class="text-sm font-medium text-primary-content">
               Not registered? <a href="/signup" class="text-primary-content hover:underline">Signup!</a>
             </div>
@@ -68,15 +67,15 @@
         <div class="p-4 md:p-5">
           <form class="space-y-4" action="/signup" method="POST">
             <div>
-              <label for="userName" class="block mb-2 text-sm font-medium text-primary-content">Choose Username</label>
+              <label for="userName" class="block mb-2 text-sm text-primary-content">Choose Username</label>
               <input type="text" name="userName" id="userName" class="border text-sm rounded-lg block w-full p-2.5" required>
             </div>
             <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-primary-content">Your email</label>
+              <label for="email" class="block mb-2 text-sm text-primary-content">Your email</label>
               <input type="email" name="email" id="email" class="border text-sm rounded-lg block w-full p-2.5" required>
             </div>
             <div>
-              <label for="password" class="block mb-2 text-sm font-medium text-primary-content">Your password</label>
+              <label for="password" class="block mb-2 text-sm text-primary-content">Your password</label>
               <input type="password" name="password" id="password" placeholder="••••••••" class="border text-sm rounded-lg block w-full p-2.5" required>
             </div>
             <div class="form-control">
@@ -86,7 +85,7 @@
               <input type="password" placeholder="••••••••" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
             </div>
             <div class="form-control mt-6">
-              <button class="btn bg-secondary hover:bg-accent">Signup</button>
+              <button class="btn text-secondary-content bg-secondary hover:bg-accent">Signup</button>
             </div>
             <div class="flex items-center h-5">
               <input id="remember" name="remember" type="hidden" value="false" class="w-4 h-4 border rounded">
@@ -102,5 +101,5 @@
       <button>close</button>
     </form>
   </dialog>
-
+</body>
 </html>

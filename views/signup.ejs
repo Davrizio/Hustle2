@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
 <main>
-  <section class="col-6 mt-5">
+  <section class="col-6">
     <%- include('partials/toast') -%>
     <form action="/signup" method="POST">
       <div class="hero min-h-screen" style="background-image: url(/imgs/gym.png);">
@@ -15,31 +15,31 @@
                   <label class="label">
                     <span class="label-text">Username</span>
                   </label>
-                  <input type="text" placeholder="you@gmail.com" class="input input-bordered" id="userName" name="userName"/>
+                  <input type="text" class="input input-bordered" id="userName" name="userName"/>
                 </div>                   
                 <div class="form-control">
                   <label class="label">
-                    <span class="label-text">Email</span>
+                    <span class="label-text text-primary-content">Email</span>
                   </label>
                   <input type="email" placeholder="you@gmail.com" class="input input-bordered" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
                 </div>
                 <div class="form-control">
                   <label class="label">
-                    <span class="label-text">Password</span>
+                    <span class="label-text text-primary-content">Password</span>
                   </label>
                   <input type="password" placeholder="••••••••" class="input input-bordered" id="password" name="password"/>
                 </div>                     
                 <div class="form-control">
                   <label class="label">
-                    <span class="label-text"> Confirm Password</span>
+                    <span class="label-text text-primary-content"> Confirm Password</span>
                   </label>
                   <input type="password" placeholder="••••••••" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
                 </div>
                 <div class="form-control mt-6">
-                  <button class="btn btn-info hover:bg-primary">Signup</button>
+                  <button class="btn btn-secondary hover:bg-accent">Signup</button>
                 </div>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                  Already a member? <a href="/login" class="text-blue-700 hover:underline dark:text-blue-500">Login!</a>
+                  Already a member? <a href="/login" class="text-primary-content hover:underline">Login!</a>
                 </div>
               </div>
             </div>
@@ -49,4 +49,4 @@
     </form>
   </section>
 </main>
-<%- include('partials/footer') -%>
+<<%- include('partials/footer') -%>>
