@@ -18,7 +18,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://github.com/Davrizio/hustle/blob/main/public/imgs/hustlev1.gif)
+![screenshot](<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/ed88a5762aef442a9ccd2d83cf9c93dc?sid=848af04f-3f72-4b37-9138-dd717927fd8b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>)
 
 ## Key Features
 
@@ -31,10 +31,14 @@
 
 ## ToDo
 
-* Show time in 12hr format
+* Add client side portal
 * Add 30, 45, 60 sec timers on appointment page
-* Improve ui for edit in exercises and appointment
+* Note section on appointment more feature rich
 * Dashboard landing page showing upcoming appts/top 5 exercises...
+* Style password reset email
+* Export exersices and send to email
+* Add pagination to tables
+* Additional style
 
 ## How To Use
 
