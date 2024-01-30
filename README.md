@@ -18,7 +18,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/ed88a5762aef442a9ccd2d83cf9c93dc?sid=848af04f-3f72-4b37-9138-dd717927fd8b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>)
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/ed88a5762aef442a9ccd2d83cf9c93dc?sid=848af04f-3f72-4b37-9138-dd717927fd8b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Key Features
 
