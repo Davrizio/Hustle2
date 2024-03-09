@@ -1,61 +1,67 @@
 <%- include('partials/headerWithMenu') -%>
-<main class="mb-auto">
-  <div class="grid grid-cols-3 gap-4 mx-2 md:mx-6">
-    <table class="col-span-3 table table-fixed table-xs sm:table-sm md:table-md lg:table-md bg-base-300">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th class="text-base-content">Name</th>
-          <th class="text-base-content">Phone</th>
-          <th class="text-base-content">Email</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(i=0; i<posts.length; i++) {%>
-          <tr>
-            <td class="avatar">
-              <div class="w-12 md:w-24 rounded-xl">
-                <a href="/client/<%= posts[i]._id%>" ><img class="object-cover w-24 h-24 hover:w-28 hover:h-28" src="<%= posts[i].image%>" alt="Client image" /></a>
-              </div>
-            </td>
-            <td>
-              <button class="btn btn-xs md:btn-sm bg-primary hover:bg-secondary">
-                <div>
-                  <a href="/client/<%= posts[i]._id%>" >More Info</a>
-                </div>
-              </button>
-            </td>
-            <td>
-              <div><%= posts[i].name.toUpperCase() %></div>
-            </td>
-            <td>
-              <a href="tel:<%= posts[i].phone %>"><%= posts[i].phone %></a>
-            </td>
-            <td class="break-words w-24">
-              <a href="mailto:<%= posts[i].email %>"><%= posts[i].email %></a>
-            </td>
-            <td class="flex justify-end">
-              <form action="/client/deletePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="col-3">
-                  <button class="btn fa fa-trash btn-ghost" type="submit"></button>
-              </form>
-            </td>
-          </tr>
-        <%}%>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th></th>
-          <th></th>
-          <th class="text-base-content">Name</th>
-          <th class="text-base-content">Phone</th>
-          <th class="text-base-content">Email</th>
-          <th></th>
-        </tr>
-      </tfoot> 
-    </table>
-    <div class="col-span-3 place-self-center">
+<main>
+  <div class="flex flex-col gap-4 mt-10">
+    <div class="card max-w-auto bg-secondary mx-4">
+      <div class="card-body p-0">
+        <div class="overflow-x-auto">
+          <table class="table table-xs lg:table-sm bg-base-300">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th class="text-base-content">Name</th>
+                <th class="text-base-content">Phone</th>
+                <th class="text-base-content">Email</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(i=0; i<posts.length; i++) {%>
+                <tr>
+                  <td class="avatar">
+                    <div class="w-12 md:w-24 rounded-xl">
+                      <a href="/client/<%= posts[i]._id%>" ><img class="object-cover w-24 h-24" src="<%= posts[i].image%>" alt="Client image" /></a>
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm md:btn-md bg-primary hover:bg-secondary text-xs md:text-sm">
+                      <div>
+                        <a href="/client/<%= posts[i]._id%>" >More Info</a>
+                      </div>
+                    </button>
+                  </td>
+                  <td>
+                    <div><%= posts[i].name.toUpperCase() %></div>
+                  </td>
+                  <td>
+                    <a href="tel:<%= posts[i].phone %>"><%= posts[i].phone %></a>
+                  </td>
+                  <td class="break-words">
+                    <a href="mailto:<%= posts[i].email %>"><%= posts[i].email %></a>
+                  </td>
+                  <td class="flex justify-end">
+                    <form action="/client/deletePost/<%= posts[i].id %>?_method=DELETE" method="POST" class="col-3">
+                        <button class="btn fa fa-trash btn-ghost" type="submit"></button>
+                    </form>
+                  </td>
+                </tr>
+              <%}%>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th></th>
+                <th></th>
+                <th class="text-base-content">Name</th>
+                <th class="text-base-content">Phone</th>
+                <th class="text-base-content">Email</th>
+                <th></th>
+              </tr>
+            </tfoot> 
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="place-self-center h-screen">
       <button class="btn btn-long bg-primary hover:bg-secondary" onclick="clientModal.showModal()">Add Client</button>
     </div>
   </div>

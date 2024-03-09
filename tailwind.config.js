@@ -4,7 +4,11 @@ module.exports = {
     "./**/*.{html,js,ejs}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        raleway: ['Raleway']
+      }
+    },
   },
   plugins: [
     require('daisyui'),

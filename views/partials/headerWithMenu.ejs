@@ -11,11 +11,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hustle!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="/imgs/favicon-32x32.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="../css/output.css" />
 </head>
-<body>
+<body class="font-raleway">
   <header>
     <div class="navbar mb-4 bg-base-200">
       <div class="navbar-start">
@@ -23,23 +26,21 @@
           <div tabindex="0" role="button" class="btn btn-ghost btn-md">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
           </div>
-          <ul tabindex="0" class="menu grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-2 text-sm dropdown-content mt-64 z-[1] p-2 rounded-box w-max bg-base-200">
+          <ul tabindex="0" class="menu flex flex-row gap-2 text-sm dropdown-content mt-64 z-[1] p-2 rounded-box w-max bg-base-200">
             <li><a role="button" class="btn btn-sm text-xs sm:btm-md bg-primary text-primary-content" href="/exercises">Exercises</a></li>
             <li><a role="button" class="btn btn-sm text-xs sm:btm-md bg-primary text-primary-content" href="/clients">Clients</a></li>
             <li><a role="button" class="btn btn-sm text-xs sm:btm-md bg-primary text-primary-content" href="/appointments">Appointments</a></li>
           </ul>
         </div>
       </div>
-      <div class="navbar-center">
-        <div></div>
-      </div>
+      <div class="navbar-center"></div>
       <div class="navbar-end">
-        <div class="text-primary-content mr-2">Logged in:</div>
-        <div class="dropdown dropdown-left bg-base-200 mr-4">
+        <div class="text-primary-content text-sm md:text-base">Logged in:</div>
+        <div class="dropdown dropdown-left bg-base-200">
           <div tabindex="0" role="button" class="btn btn-md btn-ghost">
-            <div><%= user.userName.toUpperCase() %></div>
+            <div class="text-sm md:text-base"><%= user.userName.toUpperCase() %></div>
           </div>
-          <ul tabindex="0" class="menu grid grid-flow-row-dense grid-cols-1 grid-rows-1 gap-2 text-sm dropdown-content z-[1] p-2 rounded-box w-max bg-base-200">
+          <ul tabindex="0" class="menu flex flex-row gap-2 text-sm dropdown-content z-[1] p-2 rounded-box w-max bg-base-200">
             <li><a role="button" class="btn btn-sm text-xs sm:btm-md bg-primary text-primary-content" href="/logout" >Logout</a></li>
           </ul>
         </div>

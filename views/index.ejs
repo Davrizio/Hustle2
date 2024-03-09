@@ -35,11 +35,11 @@
           <form class="space-y-4" action="/login" method="POST">
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-primary-content">Your email</label>
-              <input type="email" name="email" id="email" class=" border text-sm rounded-lg block w-full p-2.5" required>
+              <input type="email" name="email" id="email" class=" border text-sm rounded-lg block w-full p-2.5 outline-none" required>
             </div>
             <div>
               <label for="password" class="block mb-2 text-sm font-medium text-primary-content">Your password</label>
-              <input type="password" name="password" id="password" placeholder="••••••••" class="border text-sm rounded-lg block w-full p-2.5" required>
+              <input type="password" name="password" id="password" placeholder="••••••••" class="border text-sm rounded-lg block w-full p-2.5 outline-none" required>
             </div>
             <div class="flex justify-between">
               <a href="/password-reset" class="text-sm text-primary-content">Lost Password?</a>
@@ -60,35 +60,28 @@
     <div class="modal-box bg-primary">
       <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="flex items-center justify-between p-4 md:p-5 rounded-t">
-          <h3 class="text-5xl font-semibold text-primary-content">
-            Signup and get started!
-          </h3>
+          <h3 class="text-5xl font-semibold text-primary-content">Signup and get started!</h3>
         </div>
         <div class="p-4 md:p-5">
           <form class="space-y-4" action="/signup" method="POST">
             <div>
               <label for="userName" class="block mb-2 text-sm text-primary-content">Choose Username</label>
-              <input type="text" name="userName" id="userName" class="border text-sm rounded-lg block w-full p-2.5" required>
+              <input type="text" name="userName" id="userName" class="border text-sm rounded-lg block w-full p-2.5 outline-none" required>
             </div>
             <div>
               <label for="email" class="block mb-2 text-sm text-primary-content">Your email</label>
-              <input type="email" name="email" id="email" class="border text-sm rounded-lg block w-full p-2.5" required>
+              <input type="email" name="email" id="email" class="border text-sm rounded-lg block w-full p-2.5 outline-none" required>
             </div>
             <div>
               <label for="password" class="block mb-2 text-sm text-primary-content">Your password</label>
-              <input type="password" name="password" id="password" placeholder="••••••••" class="border text-sm rounded-lg block w-full p-2.5" required>
+              <input type="password" name="password" id="password" placeholder="••••••••" class="border text-sm rounded-lg block w-full p-2.5 outline-none" required>
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text text-primary-content"> Confirm Password</span>
-              </label>
-              <input type="password" placeholder="••••••••" class="input input-bordered" id="confirmPassword" name="confirmPassword" />
+            <div>
+              <label for="confirmPassword" class="block mb-2 text-sm text-primary-content">Confirm password</label>
+              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="••••••••" class="border text-sm rounded-lg block w-full p-2.5 outline-none" required>
             </div>
             <div class="form-control mt-6">
               <button class="btn text-secondary-content bg-secondary hover:bg-accent">Signup</button>
-            </div>
-            <div class="flex items-center h-5">
-              <input id="remember" name="remember" type="hidden" value="false" class="w-4 h-4 border rounded">
             </div>
             <div class="text-sm font-medium text-primary-content">
               Already registered? <a href="/login" class="hover:underline text-primary-content">Sign in here!</a>
